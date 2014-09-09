@@ -232,7 +232,7 @@ public class Administratie {
     public ArrayList<Persoon> getPersonenMetAchternaam(String achternaam) {
         ArrayList<Persoon> correct = new ArrayList<>();
         for (Persoon p : personen) {
-            if (p.getNaam().equals(achternaam)) {
+            if (p.getNaam().toUpperCase().equals(achternaam.toUpperCase())) {
                 correct.add(p);
             }
         }
