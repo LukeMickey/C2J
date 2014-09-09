@@ -20,7 +20,7 @@ public class Administratie {
         //todo opgave 1
         personen = new ArrayList<>();
         gezinnen = new ArrayList<>();
-        ///asdfjapsdfjasipfoj
+
     }
 
     //**********************methoden****************************************
