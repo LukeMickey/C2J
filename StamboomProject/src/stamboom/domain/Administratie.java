@@ -20,7 +20,6 @@ public class Administratie {
         //todo opgave 1
         personen = new ArrayList<>();
         gezinnen = new ArrayList<>();
-
     }
 
     //**********************methoden****************************************
@@ -67,9 +66,15 @@ public class Administratie {
         if (gebplaats.trim().isEmpty()) {
             throw new IllegalArgumentException("lege geboorteplaats is niet toegestaan");
         }
-
+        
         //todo opgave 1
-        return null;
+        nextPersNr++; 
+        Persoon newPersoon = new Persoon(nextPersNr, vnamen, anaam, tvoegsel, gebdat, gebplaats, geslacht, ouderlijkGezin);
+        for (Persoon p : this.getPersonenMetAchternaam(newPersoon.getAchternaam())) {
+            if(p.getNaam().equals(newPersoon.getNaam()) && p.getGebPlaats().equals((newPersoon.getGebPlaats()))) return null;                       
+        }
+        
+        return newPersoon;
     }
 
     /**
@@ -175,8 +180,17 @@ public class Administratie {
      * anders het gehuwde gezin
      */
     public Gezin addHuwelijk(Persoon ouder1, Persoon ouder2, Calendar huwdatum) {
-        //todo opgave 1
-        return null;
+        if(ouder1.getNr() == ouder2.getNr()) return null;
+        for(Gezin g : this.gezinnen) {
+            if(g.getOuder1() == ouder1 || g.getOuder1() == ouder2) return null;
+            if(g.getOuder2() == ouder1 || g.getOuder2() == ouder2) return null;            
+        }
+        
+        nextGezinsNr++;
+        Gezin g = new Gezin(nextGezinsNr, ouder1, ouder2);
+        g.setHuwelijk(huwdatum);
+        this.gezinnen.add(g);
+        return g;
     }
 
     /**
@@ -231,7 +245,7 @@ public class Administratie {
      */
     public List<Persoon> getPersonen() {
         // todo opgave 1
-        return null;
+        return this.personen; 
     }
 
     /**

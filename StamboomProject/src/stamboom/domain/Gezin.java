@@ -157,7 +157,11 @@ public class Gezin {
      */
     public String beschrijving() {
         //todo opgave 1
-        return null;
+        String info = String.format("%s - Huwelijkspartners: %s, %s - Datum: %s", this.nr, this.ouder1, this.ouder2, this.huwelijksdatum);
+        for(Persoon p : this.kinderen) {
+            info += " - " + p.getNaam();
+        }
+        return info;
     }
 
     void breidUitMet(Persoon kind) {
