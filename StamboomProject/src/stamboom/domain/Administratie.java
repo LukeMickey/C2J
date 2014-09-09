@@ -18,8 +18,9 @@ public class Administratie {
      */
     public Administratie() {
         //todo opgave 1
-        personen = null;
-        gezinnen = null;
+        personen = new ArrayList<>();
+        gezinnen = new ArrayList<>();
+        //bygoddoyousuckkkkXXxx
     }
 
     //**********************methoden****************************************
