@@ -69,10 +69,16 @@ public class Administratie {
         
         //todo opgave 1
         nextPersNr++; 
+        
         Persoon newPersoon = new Persoon(nextPersNr, vnamen, anaam, tvoegsel, gebdat, gebplaats, geslacht, ouderlijkGezin);
+        System.out.println("Just added" + newPersoon.getNaam());
+        
         for (Persoon p : this.getPersonenMetAchternaam(newPersoon.getAchternaam())) {
             if(p.getNaam().equals(newPersoon.getNaam()) && p.getGebPlaats().equals((newPersoon.getGebPlaats()))) return null;                       
         }
+        
+        this.personen.add(newPersoon);
+        
         
         return newPersoon;
     }
@@ -220,7 +226,7 @@ public class Administratie {
             if (p.getNr() == nr) {
                 return p;
             }
-        }
+        } 
         return null;
     }
 
@@ -231,8 +237,9 @@ public class Administratie {
      */
     public ArrayList<Persoon> getPersonenMetAchternaam(String achternaam) {
         ArrayList<Persoon> correct = new ArrayList<>();
+        
         for (Persoon p : personen) {
-            if (p.getNaam().toUpperCase().equals(achternaam.toUpperCase())) {
+            if (p.getAchternaam().toUpperCase().equals(achternaam.toUpperCase())) {
                 correct.add(p);
             }
         }

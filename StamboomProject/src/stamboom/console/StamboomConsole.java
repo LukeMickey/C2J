@@ -143,6 +143,7 @@ public class StamboomConsole {
     Persoon selecteerPersoon() {
         String naam = readString("wat is de achternaam");
         ArrayList<Persoon> personen = getAdmin().getPersonenMetAchternaam(naam);
+        
         for (Persoon p : personen) {
             System.out.println(p.getNr() + "\t" + p.getNaam() + " " + datumString(p.getGebDat()));
         }

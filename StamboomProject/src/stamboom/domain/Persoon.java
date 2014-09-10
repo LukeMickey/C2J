@@ -32,8 +32,15 @@ public class Persoon {
      */
     Persoon(int persNr, String[] vnamen, String anaam, String tvoegsel,
             Calendar gebdat, String gebplaats, Geslacht g, Gezin ouderlijkGezin) {
-        //todo opgave 1
-        throw new UnsupportedOperationException();
+        this.nr = persNr;
+        this.voornamen = vnamen;
+        this.achternaam = anaam;
+        this.tussenvoegsel = tvoegsel;
+        this.gebDat = gebdat;
+        this.gebPlaats = gebplaats;
+        this.ouderlijkGezin = ouderlijkGezin;
+        this.alsOuderBetrokkenIn = new ArrayList<>();
+        this.geslacht = g;
     }
 
     // ********methoden****************************************
@@ -74,7 +81,7 @@ public class Persoon {
      */
     public String getInitialen() {
         //todo opgave 1
-        return null;
+        return this.tussenvoegsel;
     }
 
     /**
@@ -85,7 +92,7 @@ public class Persoon {
      */
     public String getNaam() {
         //todo opgave 1
-        return null;
+        return String.format("%s %s %s", this.voornamen[0], this.tussenvoegsel, this.achternaam);
     }
 
     /**
