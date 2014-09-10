@@ -146,7 +146,12 @@ public class Gezin {
      */
     boolean setHuwelijk(Calendar datum) {
         //todo opgave 1
-        return false;
+        this.huwelijksdatum = datum;
+        if(this.huwelijksdatum == null) { 
+            this.huwelijksdatum = datum;        
+            return true;
+        }
+        else return false;
     }
 
     /**
@@ -187,7 +192,9 @@ public class Gezin {
      * @return true als dit gezin op datum een huwelijk is, anders false
      */
     public boolean isHuwelijkOp(Calendar datum) {
-        //todo opgave 1
+        if (huwelijksdatum == datum) {
+            return true;
+        }
         return false;
     }
 
@@ -205,7 +212,9 @@ public class Gezin {
      * @return true als dit een gescheiden huwelijk is op datum, anders false
      */
     public boolean heeftGescheidenOudersOp(Calendar datum) {
-        //todo opgave 1
+        if (scheidingsdatum == datum) {
+            return true;
+        }
         return false;
     }
 }

@@ -67,9 +67,7 @@ public class Administratie {
             throw new IllegalArgumentException("lege geboorteplaats is niet toegestaan");
         }
         
-        //todo opgave 1
-        nextPersNr++; 
-        
+        //todo opgave 1        
         Persoon newPersoon = new Persoon(nextPersNr, vnamen, anaam, tvoegsel, gebdat, gebplaats, geslacht, ouderlijkGezin);
         System.out.println("Just added" + newPersoon.getNaam());
         
@@ -79,6 +77,7 @@ public class Administratie {
         
         this.personen.add(newPersoon);
         
+        nextPersNr++; 
         
         return newPersoon;
     }
@@ -192,10 +191,10 @@ public class Administratie {
             if(g.getOuder2() == ouder1 || g.getOuder2() == ouder2) return null;            
         }
         
-        nextGezinsNr++;
         Gezin g = new Gezin(nextGezinsNr, ouder1, ouder2);
         g.setHuwelijk(huwdatum);
         this.gezinnen.add(g);
+        nextGezinsNr++;
         return g;
     }
 
