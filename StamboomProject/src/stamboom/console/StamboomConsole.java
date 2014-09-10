@@ -1,9 +1,9 @@
 package stamboom.console;
 
-import stamboom.domain.*;
 import java.util.*;
-import stamboom.util.StringUtilities;
 import stamboom.controller.StamboomController;
+import stamboom.domain.*;
+import stamboom.util.StringUtilities;
 
 public class StamboomConsole {
 
@@ -85,7 +85,7 @@ public class StamboomConsole {
             ouders = getAdmin().getGezin(Integer.parseInt(gezinsString));
         }
 
-        getAdmin().addPersoon(geslacht, vnamen, anaam, tvoegsel, gebdat,
+        getAdmin().addPersoon(geslacht, vnamen, StringUtilities.withFirstCapital(anaam), tvoegsel, gebdat,
                 gebplaats, ouders);
     }
 
