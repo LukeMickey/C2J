@@ -102,8 +102,6 @@ public class Gezin {
             s.append(" ").append(StringUtilities.datumString(huwelijksdatum));
         }
         
-        System.out.println("-a-- " + s);
-        
         return s.toString();
     }
 
@@ -150,11 +148,18 @@ public class Gezin {
     boolean setHuwelijk(Calendar datum) {
         //todo opgave 1
         
+        if (ouder1.kanTrouwenOp(datum) && ouder2.kanTrouwenOp(datum) && huwelijksdatum == null) {
+            this.huwelijksdatum = datum;
+            return true;
+        }
+        return false;
+        /*
         if(this.huwelijksdatum == null) { 
             this.huwelijksdatum = datum;        
             return true;
         }
         else return false;
+        */
     }
 
     /**
@@ -232,7 +237,7 @@ public class Gezin {
      */
     public boolean heeftGescheidenOudersOp(Calendar datum) {
         
-        if (scheidingsdatum.before(datum)) {
+        if(scheidingsdatum != null && scheidingsdatum.before(datum)) {
             return true;
         }
         return false;

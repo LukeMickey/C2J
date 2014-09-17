@@ -86,14 +86,18 @@ public class Persoon {
     public String getInitialen() {
         //todo opgave 1
         String initialen = "";
-                
+        for (String s : voornamen) {
+            initialen += s.substring(0, 1).trim().toUpperCase() + ".";
+        }
+        
+        /*
         if(this.voornamen[0] != null) {
             initialen += this.voornamen[0].substring(0, 1).toUpperCase() + ".";
         }
         if(this.voornamen.length > 1 && this.voornamen[1] != null) {
             initialen += this.voornamen[1].substring(0, 1).toUpperCase() + ".";
         }
-        
+        */
         return initialen;
     }
 
@@ -276,6 +280,11 @@ public class Persoon {
      */
     public boolean isGescheidenOp(Calendar datum) {
         //todo opgave 1
+        for (Gezin gezin : alsOuderBetrokkenIn) {
+            if (gezin.heeftGescheidenOudersOp(datum) && (gezin.getOuder1() == this || gezin.getOuder2() == this)) {
+                return true;
+            }
+        }
         return false;
     }
 

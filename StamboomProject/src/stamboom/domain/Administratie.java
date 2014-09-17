@@ -118,7 +118,6 @@ public class Administratie {
         if (ouder2 != null) {
             ouder2.wordtOuderIn(gezin);
         }
-        System.out.println(ouder1.getAlsOuderBetrokkenIn().size());
         return gezin;
     }
 
@@ -190,21 +189,20 @@ public class Administratie {
         
         if(ouder1.getNr() == ouder2.getNr()) return null;
         
-        System.out.println("iNDEX 0");
         
         for(Gezin g : this.gezinnen) {
-            if(g.getOuder1() == ouder1 || g.getOuder1() == ouder2) {System.out.println("iNDEX 1"); return null;}
-            if(g.getOuder2() == ouder1 || g.getOuder2() == ouder2) {System.out.println("iNDEX 2");return null;  }          
+            if((g.getOuder1() == ouder1 && g.getOuder2() == ouder2) || (g.getOuder2() == ouder1 && g.getOuder1() == ouder2)) {
+                return null;
+            }
         }
         
-        System.out.println("iNDEX 3");
-        
         Gezin g = new Gezin(nextGezinsNr, ouder1, ouder2);
-        g.setHuwelijk(huwdatum);
-        this.gezinnen.add(g);
-        nextGezinsNr++;
-        System.out.println("Lusasdafsblah" + g.beschrijving());
-        return g;
+        if (g.setHuwelijk(huwdatum)) {
+            this.gezinnen.add(g);
+            nextGezinsNr++;
+            return g;
+        }
+        return null;
     }
 
     /**
@@ -260,7 +258,7 @@ public class Administratie {
      */
     public List<Persoon> getPersonen() {
         // todo opgave 1
-        return this.personen; 
+        return Collections.unmodifiableList(this.personen); 
     }
 
     /**
@@ -279,20 +277,11 @@ public class Administratie {
         
         String initialen = "";
         
-        if(vnamen[0] != null) {
-            initialen += vnamen[0].substring(0, 1).toUpperCase() + ".";
-        }
-        if(vnamen.length > 1 && vnamen[1] != null) {
-            initialen += vnamen[1].substring(0, 1).toUpperCase() + ".";
+        for (String s : vnamen) {
+            initialen += s.substring(0, 1).trim().toUpperCase() + ".";
         }
         
         for (Persoon p : personen) {
-            
-            System.out.println("0 = " + p.getInitialen().equals(initialen));
-            System.out.println("1 = " + p.getAchternaam().toUpperCase().equals(anaam.toUpperCase()));
-            System.out.println("2 = " + p.getTussenvoegsel().toUpperCase().equals(tvoegsel.toUpperCase()));
-            System.out.println("3 = " + p.getGebDat().equals(gebdat));
-            System.out.println("4 = " + p.getGebPlaats().toUpperCase().equals(gebplaats.toUpperCase()));
             
             if (p.getInitialen().equals(initialen) && 
                     p.getAchternaam().toUpperCase().equals(anaam.toUpperCase())
