@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="10" hostname="MirataPC" name="stamboom.domain.DomeinTest" skipped="0" tests="11" time="0.098" timestamp="2014-09-10T08:48:50">
+<testsuite errors="1" failures="3" hostname="MirataPC" name="stamboom.domain.DomeinTest" skipped="0" tests="11" time="0.136" timestamp="2014-09-17T01:28:20">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javafx.binarycss" value="false" />
@@ -49,7 +49,7 @@
     <property name="user.name" value="Mickey" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner stamboom.domain.DomeinTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\test\results\TEST-stamboom.domain.DomeinTest.xml crashfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junitvmwatcher2159880732779440110.properties propsfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junit4150125090863146586.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner stamboom.domain.DomeinTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\test\results\TEST-stamboom.domain.DomeinTest.xml crashfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junitvmwatcher2183100136807319360.properties propsfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junit5219645885319188536.properties" />
     <property name="auxiliary.org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.wrapAnnotations" value="WRAP_NEVER" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
@@ -84,7 +84,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="\" />
-    <property name="javac.includesfile.binary" value="E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\null878521284" />
+    <property name="javac.includesfile.binary" value="E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\null1710771007" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar:C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/plugin.jar:build/classes" />
@@ -355,91 +355,171 @@
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="javafx.deploy.installpermanently" value="false" />
   </properties>
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersoonEnPersonen" time="0.015">
-    <failure message="identificatie persoon onjuist expected:&lt;Piet  Swinkels (MAN) 23-4-1950&gt; but was:&lt;null&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: identificatie persoon onjuist expected:&lt;Piet  Swinkels (MAN) 23-4-1950&gt; but was:&lt;null&gt;
-	at stamboom.domain.DomeinTest.testGetPersoonEnPersonen(DomeinTest.java:455)
+  <testcase classname="stamboom.domain.DomeinTest" name="testSetOuders" time="0.01" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testAddPersoon" time="0.004" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testGetNaam" time="0.001" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testAddHuwelijk" time="0.004">
+    <failure message="ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;2 A.G. Dael met J.J. Peters&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;2 A.G. Dael met J.J. Peters&gt;
+	at stamboom.domain.DomeinTest.testAddHuwelijk(DomeinTest.java:284)
 </failure>
   </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddOngehuwdGezin" time="0.007">
+  <testcase classname="stamboom.domain.DomeinTest" name="testScheiding" time="0.001" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersoonEnPersonen" time="0.003">
+    <failure message="identificatie persoon onjuist" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: identificatie persoon onjuist
+	at stamboom.domain.DomeinTest.testGetPersoonEnPersonen(DomeinTest.java:467)
+</failure>
+  </testcase>
+  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersonenMetAchternaam" time="0.001" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testHeeftGescheidenOuders" time="0.001">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at stamboom.domain.Gezin.heeftGescheidenOudersOp(Gezin.java:235)
+	at stamboom.domain.DomeinTest.testHeeftGescheidenOuders(DomeinTest.java:437)
+</error>
+  </testcase>
+  <testcase classname="stamboom.domain.DomeinTest" name="testSetEnIsHuwelijk" time="0.002" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testAddOngehuwdGezin" time="0.044">
     <failure message="een van de ouders is op dit moment getrouwd" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: een van de ouders is op dit moment getrouwd
 	at stamboom.domain.DomeinTest.testAddOngehuwdGezin(DomeinTest.java:244)
 </failure>
   </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testSetEnIsHuwelijk" time="0.001">
-    <failure message="huwelijk is niet voltrokken" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: huwelijk is niet voltrokken
-	at stamboom.domain.DomeinTest.testSetEnIsHuwelijk(DomeinTest.java:388)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testBeschrijvingGezin" time="0.005">
-    <failure message="beschrijving gezin onjuist expected:&lt;0 [Piet  Swinkels met Teuntje de Vries]&gt; but was:&lt;0 [- Huwelijkspartners: Piet  Swinkels (MAN) 23-4-1950, Teuntje de Vries (VROUW) 5-5-1949 - Datum: java.util.GregorianCalendar[time=?,areFieldsSet=false,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id=&quot;Europe/Berlin&quot;,offset=3600000,dstSavings=3600000,useDaylight=true,transitions=143,lastRule=java.util.SimpleTimeZone[id=Europe/Berlin,offset=3600000,dstSavings=3600000,useDaylight=true,startYear=0,startMode=2,startMonth=2,startDay=-1,startDayOfWeek=1,startTime=3600000,startTimeMode=2,endMode=2,endMonth=9,endDay=-1,endDayOfWeek=1,endTime=3600000,endTimeMode=2]],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=?,YEAR=1970,MONTH=4,WEEK_OF_YEAR=?,WEEK_OF_MONTH=?,DAY_OF_MONTH=23,DAY_OF_YEAR=?,DAY_OF_WEEK=?,DAY_OF_WEEK_IN_MONTH=?,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=?,ZONE_OFFSET=?,DST_OFFSET=?]]&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: beschrijving gezin onjuist expected:&lt;0 [Piet  Swinkels met Teuntje de Vries]&gt; but was:&lt;0 [- Huwelijkspartners: Piet  Swinkels (MAN) 23-4-1950, Teuntje de Vries (VROUW) 5-5-1949 - Datum: java.util.GregorianCalendar[time=?,areFieldsSet=false,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id=&quot;Europe/Berlin&quot;,offset=3600000,dstSavings=3600000,useDaylight=true,transitions=143,lastRule=java.util.SimpleTimeZone[id=Europe/Berlin,offset=3600000,dstSavings=3600000,useDaylight=true,startYear=0,startMode=2,startMonth=2,startDay=-1,startDayOfWeek=1,startTime=3600000,startTimeMode=2,endMode=2,endMonth=9,endDay=-1,endDayOfWeek=1,endTime=3600000,endTimeMode=2]],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=?,YEAR=1970,MONTH=4,WEEK_OF_YEAR=?,WEEK_OF_MONTH=?,DAY_OF_MONTH=23,DAY_OF_YEAR=?,DAY_OF_WEEK=?,DAY_OF_WEEK_IN_MONTH=?,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=?,ZONE_OFFSET=?,DST_OFFSET=?]]&gt;
-	at stamboom.domain.DomeinTest.testBeschrijvingGezin(DomeinTest.java:159)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testHeeftGescheidenOuders" time="0.001">
-    <failure message="wel gescheiden" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: wel gescheiden
-	at stamboom.domain.DomeinTest.testHeeftGescheidenOuders(DomeinTest.java:441)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersonenMetAchternaam" time="0.001" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testScheiding" time="0.001">
-    <failure message="wel gescheiden" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: wel gescheiden
-	at stamboom.domain.DomeinTest.testScheiding(DomeinTest.java:426)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testSetOuders" time="0.002">
-    <failure message="ouders onbekend expected:&lt;0 Piet  Swinkels met Teuntje de Vries&gt; but was:&lt;null&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: ouders onbekend expected:&lt;0 Piet  Swinkels met Teuntje de Vries&gt; but was:&lt;null&gt;
-	at stamboom.domain.DomeinTest.testSetOuders(DomeinTest.java:134)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddHuwelijk" time="0.002">
-    <failure message="ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;1 Annie  Dael met Jan  Peters&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;1 Annie  Dael met Jan  Peters&gt;
-	at stamboom.domain.DomeinTest.testAddHuwelijk(DomeinTest.java:283)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddPersoon" time="0.002">
-    <failure message="geboorteplaats onjuist expected:&lt;[E]de&gt; but was:&lt;[e]de&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: geboorteplaats onjuist expected:&lt;[E]de&gt; but was:&lt;[e]de&gt;
-	at stamboom.domain.DomeinTest.testAddPersoon(DomeinTest.java:67)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetNaam" time="0.001">
-    <failure message="naam incorrect expected:&lt;P[.F.] Swinkels&gt; but was:&lt;P[iet ] Swinkels&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: naam incorrect expected:&lt;P[.F.] Swinkels&gt; but was:&lt;P[iet ] Swinkels&gt;
-	at stamboom.domain.DomeinTest.testGetNaam(DomeinTest.java:118)
-</failure>
-  </testcase>
-  <system-out><![CDATA[Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedAnnie  Dael
-Just addedJan  Peters
-Just addedt VaN deR sWinkelS
-Just addedPim VaN deR sWinkelS
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedAnnie  Dael
-Just addedJan  Peters
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedFranciscus  Swinkel
-Just addedFranciscus van der Swinkels
-Just addedFranciscus  Swinkelse
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedMarkus  sWinkelS
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedAnnie  Dael
-Just addedJan  Peters
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
-Just addedPiet  Swinkels
-Just addedTeuntje de Vries
+  <testcase classname="stamboom.domain.DomeinTest" name="testBeschrijvingGezin" time="0.004" />
+  <system-out><![CDATA[Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedM.A. Swinkels
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedJ.J. Peters
+Just addedT.J. VaN deR Swinkels
+Just addedT.J. VaN deR Swinkels
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedA.G. Dael
+Just addedJ.J. Peters
+RIGHT!?
+RIGHT!?
+1
+iNDEX 0
+iNDEX 1
+-a-- 2 A.G. Dael met J.J. Peters
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+0 = true
+1 = true
+2 = true
+3 = true
+4 = true
+a0
+0 = true
+1 = true
+2 = true
+3 = true
+4 = true
+a0
+0 = false
+1 = true
+2 = true
+3 = true
+4 = true
+0 = false
+1 = false
+2 = false
+3 = false
+4 = false
+0 = true
+1 = true
+2 = true
+3 = true
+4 = true
+a0
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedF.G. Swinkel
+Just addedF.G. van der Swinkels
+Just addedF.G. Swinkelse
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedA.G. Dael
+Just addedJ.J. Peters
+RIGHT!?
+RIGHT!?
+1
+Just addedP. VaN deR Pieterse
+iNDEX 0
+iNDEX 1
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedA.G. Dael
+Just addedJ.J. Peters
+RIGHT!?
+RIGHT!?
+1
+Just addedT.J. VaN deR Swinkels
+RIGHT!?
+1
+Just addedP. VaN deR Swinkels
+RIGHT!?
+RIGHT!?
+1
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedM. .  swinkels  
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970; kinderen: -Markus Anna
+Just addedL. Swinkels
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970; kinderen: -Markus Anna -Leentje
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

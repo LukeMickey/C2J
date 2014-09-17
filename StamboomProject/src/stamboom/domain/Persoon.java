@@ -34,13 +34,17 @@ public class Persoon {
             Calendar gebdat, String gebplaats, Geslacht g, Gezin ouderlijkGezin) {
         this.nr = persNr;
         this.voornamen = vnamen;
-        this.achternaam = anaam;
+        this.achternaam = StringUtilities.withFirstCapital(anaam);
         this.tussenvoegsel = tvoegsel;
         this.gebDat = gebdat;
-        this.gebPlaats = gebplaats;
-        this.ouderlijkGezin = ouderlijkGezin;
+        this.gebPlaats = StringUtilities.withFirstCapital(gebplaats);        
         this.alsOuderBetrokkenIn = new ArrayList<>();
         this.geslacht = g;
+        
+        this.ouderlijkGezin = ouderlijkGezin;
+        if(this.ouderlijkGezin != null) {
+            this.ouderlijkGezin.breidUitMet(this);
+        }
     }
 
     // ********methoden****************************************
@@ -81,7 +85,16 @@ public class Persoon {
      */
     public String getInitialen() {
         //todo opgave 1
-        return this.tussenvoegsel;
+        String initialen = "";
+                
+        if(this.voornamen[0] != null) {
+            initialen += this.voornamen[0].substring(0, 1).toUpperCase() + ".";
+        }
+        if(this.voornamen.length > 1 && this.voornamen[1] != null) {
+            initialen += this.voornamen[1].substring(0, 1).toUpperCase() + ".";
+        }
+        
+        return initialen;
     }
 
     /**
@@ -92,7 +105,11 @@ public class Persoon {
      */
     public String getNaam() {
         //todo opgave 1
-        return String.format("%s %s %s", this.voornamen[0], this.tussenvoegsel, this.achternaam);
+        if(this.tussenvoegsel.equals("")) {
+            return String.format("%s %s", this.getInitialen(), this.achternaam);
+        } else {
+            return String.format("%s %s %s", this.getInitialen(), this.tussenvoegsel, this.achternaam);
+        }
     }
 
     /**
@@ -114,7 +131,7 @@ public class Persoon {
      * string zijn)
      */
     public String getTussenvoegsel() {
-        return tussenvoegsel;
+        return tussenvoegsel.toLowerCase();
     }
 
     /**
@@ -123,7 +140,7 @@ public class Persoon {
     public String getVoornamen() {
         StringBuilder init = new StringBuilder();
         for (String s : voornamen) {
-            init.append(s).append(' ');
+            init.append(StringUtilities.withFirstCapital(s.trim())).append(' ');            
         }
         return init.toString().trim();
     }
@@ -156,7 +173,10 @@ public class Persoon {
      * @param ouderlijkGezin
      */
     void setOuders(Gezin ouderlijkGezin) {
-        //todo opgave 1
+        if(this.ouderlijkGezin == null) {
+            this.ouderlijkGezin = ouderlijkGezin;
+            ouderlijkGezin.breidUitMet(this);
+        }
     }
 
     /**
@@ -196,6 +216,7 @@ public class Persoon {
     void wordtOuderIn(Gezin g) {
         if (!alsOuderBetrokkenIn.contains(g)) {
             alsOuderBetrokkenIn.add(g);
+            System.out.println("RIGHT!?");
         }
     }
 
@@ -208,6 +229,11 @@ public class Persoon {
      */
     public Gezin heeftOngehuwdGezinMet(Persoon andereOuder) {
         //todo opgave 1
+        for (Gezin g : alsOuderBetrokkenIn) {
+            if ((g.getOuder1() == andereOuder || g.getOuder2() == andereOuder) && (g.getOuder1() == this || g.getOuder2() == this) && andereOuder != this) {
+                return g;
+            }
+        }
         return null;
     }
 
@@ -217,10 +243,8 @@ public class Persoon {
      * @return true als persoon op datum getrouwd is, anders false
      */
     public boolean isGetrouwdOp(Calendar datum) {
-        for (Gezin gezin : alsOuderBetrokkenIn) {
-            if (gezin.heeftGetrouwdeOudersOp(datum)) {
-                return true;
-            }
+        for(Gezin g : this.alsOuderBetrokkenIn) {
+            if(g.getHuwelijksdatum() != null && g.getHuwelijksdatum().before(datum)) { return true;} 
         }
         return false;
     }

@@ -20,6 +20,8 @@ public class Administratie {
         //todo opgave 1
         personen = new ArrayList<>();
         gezinnen = new ArrayList<>();
+        this.nextGezinsNr = 1;
+        this.nextPersNr = 1;
     }
 
     //**********************methoden****************************************
@@ -105,10 +107,10 @@ public class Administratie {
         if (ouder1.isGetrouwdOp(nu) || (ouder2 != null
                 && ouder2.isGetrouwdOp(nu))
                 || ongehuwdGezinBestaat(ouder1, ouder2)) {
-            return null;
+            return null;      
         }
-
-        Gezin gezin = new Gezin(nextGezinsNr, ouder1, ouder2);
+        
+        Gezin gezin = new Gezin(nextGezinsNr, ouder1, ouder2);  
         nextGezinsNr++;
         gezinnen.add(gezin);
 
@@ -116,7 +118,7 @@ public class Administratie {
         if (ouder2 != null) {
             ouder2.wordtOuderIn(gezin);
         }
-
+        System.out.println(ouder1.getAlsOuderBetrokkenIn().size());
         return gezin;
     }
 
@@ -185,16 +187,23 @@ public class Administratie {
      * anders het gehuwde gezin
      */
     public Gezin addHuwelijk(Persoon ouder1, Persoon ouder2, Calendar huwdatum) {
+        
         if(ouder1.getNr() == ouder2.getNr()) return null;
+        
+        System.out.println("iNDEX 0");
+        
         for(Gezin g : this.gezinnen) {
-            if(g.getOuder1() == ouder1 || g.getOuder1() == ouder2) return null;
-            if(g.getOuder2() == ouder1 || g.getOuder2() == ouder2) return null;            
+            if(g.getOuder1() == ouder1 || g.getOuder1() == ouder2) {System.out.println("iNDEX 1"); return null;}
+            if(g.getOuder2() == ouder1 || g.getOuder2() == ouder2) {System.out.println("iNDEX 2");return null;  }          
         }
+        
+        System.out.println("iNDEX 3");
         
         Gezin g = new Gezin(nextGezinsNr, ouder1, ouder2);
         g.setHuwelijk(huwdatum);
         this.gezinnen.add(g);
         nextGezinsNr++;
+        System.out.println("Lusasdafsblah" + g.beschrijving());
         return g;
     }
 
@@ -267,7 +276,34 @@ public class Administratie {
      */
     public Persoon getPersoon(String[] vnamen, String anaam, String tvoegsel,
             Calendar gebdat, String gebplaats) {
-        //todo opgave 1
+        
+        String initialen = "";
+        
+        if(vnamen[0] != null) {
+            initialen += vnamen[0].substring(0, 1).toUpperCase() + ".";
+        }
+        if(vnamen.length > 1 && vnamen[1] != null) {
+            initialen += vnamen[1].substring(0, 1).toUpperCase() + ".";
+        }
+        
+        for (Persoon p : personen) {
+            
+            System.out.println("0 = " + p.getInitialen().equals(initialen));
+            System.out.println("1 = " + p.getAchternaam().toUpperCase().equals(anaam.toUpperCase()));
+            System.out.println("2 = " + p.getTussenvoegsel().toUpperCase().equals(tvoegsel.toUpperCase()));
+            System.out.println("3 = " + p.getGebDat().equals(gebdat));
+            System.out.println("4 = " + p.getGebPlaats().toUpperCase().equals(gebplaats.toUpperCase()));
+            
+            if (p.getInitialen().equals(initialen) && 
+                    p.getAchternaam().toUpperCase().equals(anaam.toUpperCase())
+                    && p.getTussenvoegsel().toUpperCase().equals(tvoegsel.toUpperCase())
+                    && p.getGebDat().equals(gebdat)
+                    && p.getGebPlaats().toUpperCase().equals(gebplaats.toUpperCase())) {
+                
+                System.out.println("a" + 0);
+                return p;
+            }
+        }
         return null;
     }
 

@@ -101,6 +101,9 @@ public class Gezin {
         if (heeftGetrouwdeOudersOp(Calendar.getInstance())) {
             s.append(" ").append(StringUtilities.datumString(huwelijksdatum));
         }
+        
+        System.out.println("-a-- " + s);
+        
         return s.toString();
     }
 
@@ -146,7 +149,7 @@ public class Gezin {
      */
     boolean setHuwelijk(Calendar datum) {
         //todo opgave 1
-        this.huwelijksdatum = datum;
+        
         if(this.huwelijksdatum == null) { 
             this.huwelijksdatum = datum;        
             return true;
@@ -162,11 +165,27 @@ public class Gezin {
      */
     public String beschrijving() {
         //todo opgave 1
-        String info = String.format("%s - Huwelijkspartners: %s, %s - Datum: %s", this.nr, this.ouder1, this.ouder2, this.huwelijksdatum);
-        for(Persoon p : this.kinderen) {
-            info += " - " + p.getNaam();
+        StringBuilder s = new StringBuilder();
+        s.append(this.nr).append(" ");
+        s.append(ouder1.getNaam());
+        if (ouder2 != null) {
+            s.append(" met ");
+            s.append(ouder2.getNaam());
         }
-        return info;
+        if (heeftGetrouwdeOudersOp(Calendar.getInstance())) {
+            s.append(" ").append(StringUtilities.datumString(huwelijksdatum));
+        }
+        
+        if(this.kinderen.size() > 0) {
+            s.append("; kinderen:");
+            for(Persoon p : this.kinderen) {
+                s.append(" -" + p.getVoornamen());
+            }
+        }
+        
+        System.out.println("-a-- " + s);
+        
+        return s.toString();
     }
 
     void breidUitMet(Persoon kind) {
@@ -192,7 +211,7 @@ public class Gezin {
      * @return true als dit gezin op datum een huwelijk is, anders false
      */
     public boolean isHuwelijkOp(Calendar datum) {
-        if (huwelijksdatum == datum) {
+        if (huwelijksdatum != null && huwelijksdatum.before(datum)) {
             return true;
         }
         return false;
@@ -212,7 +231,8 @@ public class Gezin {
      * @return true als dit een gescheiden huwelijk is op datum, anders false
      */
     public boolean heeftGescheidenOudersOp(Calendar datum) {
-        if (scheidingsdatum == datum) {
+        
+        if (scheidingsdatum.before(datum)) {
             return true;
         }
         return false;

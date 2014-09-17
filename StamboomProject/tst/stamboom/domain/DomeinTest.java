@@ -280,6 +280,7 @@ public class DomeinTest extends TestCase{
                 "", new GregorianCalendar(1980, Calendar.APRIL, 23), "Venray", pietEnTeuntje);
         Gezin annieEnJan = adm.addOngehuwdGezin(annie, jan);
         Gezin huwelijk = adm.addHuwelijk(jan, annie, nu);
+        
         assertEquals("ongehuwd gezin trouwt", huwelijk, annieEnJan);
         assertEquals("huwelijksdatum bekend", nu, huwelijk.getHuwelijksdatum());
         assertNull("scheidingsdatum onbekend", huwelijk.getScheidingsdatum());
@@ -459,9 +460,9 @@ public class DomeinTest extends TestCase{
 
         //initialen onjuist
         persoon = adm.getPersoon(new String[]{"P"}, "Swinkels",
-                "", new GregorianCalendar(1950, Calendar.APRIL, 23), "ede");
+                "", new GregorianCalendar(1950, Calendar.APRIL, 23), "Ede");
         assertNull("identificatie persoon onjuist", persoon);
-        persoon = adm.getPersoon(new String[]{"P", "f", "k"}, "Swinkels",
+        persoon = adm.getPersoon(new String[]{"P", "f"}, "Swinkels",
                 "", new GregorianCalendar(1950, Calendar.APRIL, 23), "ede");
         assertNull("identificatie persoon onjuist", persoon);
         //achternaam onjuist
