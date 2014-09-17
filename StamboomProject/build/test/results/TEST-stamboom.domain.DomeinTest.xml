@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="1" failures="3" hostname="MirataPC" name="stamboom.domain.DomeinTest" skipped="0" tests="11" time="0.136" timestamp="2014-09-17T01:28:20">
+<testsuite errors="1" failures="3" hostname="MirataPC" name="stamboom.domain.DomeinTest" skipped="0" tests="11" time="0.169" timestamp="2014-09-17T15:07:33">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javafx.binarycss" value="false" />
@@ -49,7 +49,7 @@
     <property name="user.name" value="Mickey" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner stamboom.domain.DomeinTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\test\results\TEST-stamboom.domain.DomeinTest.xml crashfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junitvmwatcher2183100136807319360.properties propsfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junit5219645885319188536.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner stamboom.domain.DomeinTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\test\results\TEST-stamboom.domain.DomeinTest.xml crashfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junitvmwatcher3434542108974737441.properties propsfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junit6433105275329596646.properties" />
     <property name="auxiliary.org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.wrapAnnotations" value="WRAP_NEVER" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
@@ -84,7 +84,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="\" />
-    <property name="javac.includesfile.binary" value="E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\null1710771007" />
+    <property name="javac.includesfile.binary" value="E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\null719939867" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar:C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/plugin.jar:build/classes" />
@@ -209,7 +209,6 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="endorsed.classpath.cmd.line.arg" value="" />
     <property name="junit.available" value="true" />
-    <property name="org.openide.awt.ActionReference.completion" value="org.netbeans.modules.apisupport.project.layers.PathCompletions" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_11\jre\bin" />
     <property name="have.sources" value="true" />
     <property name="debug.classpath" value="dist/StamboomProject.jar:C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar:C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/plugin.jar" />
@@ -296,8 +295,8 @@
     <property name="debug-transport-by-os" value="dt_shmem" />
     <property name="sun.jnu.encoding" value="Cp1252" />
     <property name="libs.MySQLDriver.src" value="" />
-    <property name="build.test.results.dir" value="build/test/results" />
     <property name="java.runtime.version" value="1.8.0_11-b12" />
+    <property name="build.test.results.dir" value="build/test/results" />
     <property name="javafx.run.inbrowser" value="&lt;Default System Browser&gt;" />
     <property name="native.bundling.enabled" value="false" />
     <property name="javafx.deploy.disable.proxy" value="false" />
@@ -329,8 +328,8 @@
     <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\jaxb\api\jaxb-api.jar" />
     <property name="nb.internal.action.name" value="run.single" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 8.0\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.1.v20130918-f2b9fc5.jar" />
-    <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 8.0\java\docs\beansbinding-1.2.1-doc.zip" />
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 8.0\java\docs\beansbinding-1.2.1-doc.zip" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans 8.0\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans 8.0\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
@@ -344,67 +343,59 @@
     <property name="libs.junit.src" value="" />
     <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
     <property name="main.class" value="com.javafx.main.Main" />
-    <property name="build.dir" value="build" />
     <property name="libs.CopyLibs.src" value="" />
+    <property name="build.dir" value="build" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.2 compiled on July 8 2013" />
-    <property name="file.encoding" value="Cp1252" />
     <property name="build.classes.excludes" value="**/*.java,**/*.form" />
-    <property name="javadoc.nonavbar" value="false" />
+    <property name="file.encoding" value="Cp1252" />
     <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="javafx.deploy.installpermanently" value="false" />
   </properties>
-  <testcase classname="stamboom.domain.DomeinTest" name="testSetOuders" time="0.01" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddPersoon" time="0.004" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetNaam" time="0.001" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddHuwelijk" time="0.004">
-    <failure message="ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;2 A.G. Dael met J.J. Peters&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;2 A.G. Dael met J.J. Peters&gt;
-	at stamboom.domain.DomeinTest.testAddHuwelijk(DomeinTest.java:284)
+  <testcase classname="stamboom.domain.DomeinTest" name="testBeschrijvingGezin" time="0.014" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testAddOngehuwdGezin" time="0.013">
+    <failure message="een van de ouders is op dit moment getrouwd" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: een van de ouders is op dit moment getrouwd
+	at stamboom.domain.DomeinTest.testAddOngehuwdGezin(DomeinTest.java:244)
 </failure>
   </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testScheiding" time="0.001" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersoonEnPersonen" time="0.003">
+  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersoonEnPersonen" time="0.014">
     <failure message="identificatie persoon onjuist" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: identificatie persoon onjuist
 	at stamboom.domain.DomeinTest.testGetPersoonEnPersonen(DomeinTest.java:467)
 </failure>
   </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersonenMetAchternaam" time="0.001" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testHeeftGescheidenOuders" time="0.001">
+  <testcase classname="stamboom.domain.DomeinTest" name="testSetEnIsHuwelijk" time="0.003" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testHeeftGescheidenOuders" time="0.009">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at stamboom.domain.Gezin.heeftGescheidenOudersOp(Gezin.java:235)
 	at stamboom.domain.DomeinTest.testHeeftGescheidenOuders(DomeinTest.java:437)
 </error>
   </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testSetEnIsHuwelijk" time="0.002" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddOngehuwdGezin" time="0.044">
-    <failure message="een van de ouders is op dit moment getrouwd" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: een van de ouders is op dit moment getrouwd
-	at stamboom.domain.DomeinTest.testAddOngehuwdGezin(DomeinTest.java:244)
+  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersonenMetAchternaam" time="0.002" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testGetNaam" time="0.007" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testSetOuders" time="0.004" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testAddPersoon" time="0.002" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testAddHuwelijk" time="0.002">
+    <failure message="ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;2 A.G. Dael met J.J. Peters&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;2 A.G. Dael met J.J. Peters&gt;
+	at stamboom.domain.DomeinTest.testAddHuwelijk(DomeinTest.java:284)
 </failure>
   </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testBeschrijvingGezin" time="0.004" />
+  <testcase classname="stamboom.domain.DomeinTest" name="testScheiding" time="0.002" />
   <system-out><![CDATA[Just addedP.F. Swinkels
 Just addedT. de Vries
 iNDEX 0
 iNDEX 3
 -a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
 Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
-Just addedM.A. Swinkels
-Just addedP.F. Swinkels
-Just addedT. de Vries
-iNDEX 0
-iNDEX 3
 -a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
-Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
-Just addedJ.J. Peters
-Just addedT.J. VaN deR Swinkels
-Just addedT.J. VaN deR Swinkels
-Just addedP.F. Swinkels
-Just addedT. de Vries
-iNDEX 0
-iNDEX 3
 -a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
-Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedM. .  swinkels  
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970; kinderen: -Markus Anna
+Just addedL. Swinkels
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970; kinderen: -Markus Anna -Leentje
 Just addedP.F. Swinkels
 Just addedT. de Vries
 iNDEX 0
@@ -416,15 +407,13 @@ Just addedJ.J. Peters
 RIGHT!?
 RIGHT!?
 1
-iNDEX 0
-iNDEX 1
--a-- 2 A.G. Dael met J.J. Peters
-Just addedP.F. Swinkels
-Just addedT. de Vries
-iNDEX 0
-iNDEX 3
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
-Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedT.J. VaN deR Swinkels
+RIGHT!?
+1
+Just addedP. VaN deR Swinkels
+RIGHT!?
+RIGHT!?
+1
 Just addedP.F. Swinkels
 Just addedT. de Vries
 iNDEX 0
@@ -465,6 +454,26 @@ iNDEX 0
 iNDEX 3
 -a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
 Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedA.G. Dael
+Just addedJ.J. Peters
+RIGHT!?
+RIGHT!?
+1
+Just addedP. VaN deR Pieterse
+iNDEX 0
+iNDEX 1
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
 Just addedF.G. Swinkel
 Just addedF.G. van der Swinkels
 Just addedF.G. Swinkelse
@@ -480,46 +489,36 @@ iNDEX 0
 iNDEX 3
 -a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
 Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedM.A. Swinkels
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
+Just addedJ.J. Peters
+Just addedT.J. VaN deR Swinkels
+Just addedT.J. VaN deR Swinkels
+Just addedP.F. Swinkels
+Just addedT. de Vries
+iNDEX 0
+iNDEX 3
+-a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
+Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
 Just addedA.G. Dael
 Just addedJ.J. Peters
 RIGHT!?
 RIGHT!?
 1
-Just addedP. VaN deR Pieterse
 iNDEX 0
 iNDEX 1
+-a-- 2 A.G. Dael met J.J. Peters
 Just addedP.F. Swinkels
 Just addedT. de Vries
 iNDEX 0
 iNDEX 3
 -a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
 Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
-Just addedA.G. Dael
-Just addedJ.J. Peters
-RIGHT!?
-RIGHT!?
-1
-Just addedT.J. VaN deR Swinkels
-RIGHT!?
-1
-Just addedP. VaN deR Swinkels
-RIGHT!?
-RIGHT!?
-1
-Just addedP.F. Swinkels
-Just addedT. de Vries
-iNDEX 0
-iNDEX 3
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
-Lusasdafsblah1 P.F. Swinkels met T. de Vries 23-5-1970
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
-Just addedM. .  swinkels  
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970; kinderen: -Markus Anna
-Just addedL. Swinkels
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970; kinderen: -Markus Anna -Leentje
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
