@@ -4,7 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/E:/School/C2J/StamboomProjectV3/C2J/StamboomProject/src/stamboom/console/StamboomConsole.java</file>
+            <file>file:/E:/School/C2J/StamboomProjectV3/C2J/StamboomProject/src/stamboom/domain/Persoon.java</file>
+            <file>file:/E:/School/C2J/StamboomProjectV3/C2J/StamboomProject/src/stamboom/util/StringUtilities.java</file>
             <file>file:/E:/School/C2J/StamboomProjectV3/C2J/StamboomProject/src/stamboom/domain/Administratie.java</file>
+            <file>file:/E:/School/C2J/StamboomProjectV3/C2J/StamboomProject/tst/stamboom/domain/StamboomTest.java</file>
             <file>file:/E:/School/C2J/StamboomProjectV3/C2J/StamboomProject/src/stamboom/domain/Gezin.java</file>
             <file>file:/E:/School/C2J/StamboomProjectV3/C2J/StamboomProject/tst/stamboom/domain/DomeinTest.java</file>
         </group>
