@@ -462,7 +462,7 @@ public class DomeinTest extends TestCase{
         persoon = adm.getPersoon(new String[]{"P"}, "Swinkels",
                 "", new GregorianCalendar(1950, Calendar.APRIL, 23), "Ede");
         assertNull("identificatie persoon onjuist", persoon);
-        persoon = adm.getPersoon(new String[]{"P", "f"}, "Swinkels",
+        persoon = adm.getPersoon(new String[]{"P", "f", "k"}, "Swinkels",
                 "", new GregorianCalendar(1950, Calendar.APRIL, 23), "ede");
         assertNull("identificatie persoon onjuist", persoon);
         //achternaam onjuist
