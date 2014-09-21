@@ -38,6 +38,10 @@ public class StamboomController {
     public void clearAdministratie() {
         admin = new Administratie();
     }
+    
+    public void setAdmin(Administratie admin){
+        this.admin = admin;
+    }
 
     /**
      * administratie wordt in geserialiseerd bestand opgeslagen

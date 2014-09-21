@@ -342,7 +342,24 @@ public class Persoon implements java.io.Serializable {
      * toegewezen;
      */
     void voegJouwStamboomToe(ArrayList<PersoonMetGeneratie> lijst, int g) {
-        //todo opgave 2
+        int gen = -1;
+        for (PersoonMetGeneratie p : lijst) {
+            if (p.getGeneratie() == g) {
+                gen = lijst.indexOf(p);
+            }
+        }
+        if (gen != -1) {
+            String gegevens = this.getNaam() + " " + this.getGeslacht() + " " + this.getGebDat();
+            lijst.add(gen+1, new PersoonMetGeneratie(gegevens, g));
+            Persoon ouder1 = this.getOuderlijkGezin().getOuder1();
+            Persoon ouder2 = this.getOuderlijkGezin().getOuder2();
+            if (ouder1 != null) {
+                ouder1.voegJouwStamboomToe(lijst, g + 1);
+            }
+            if (ouder2 != null) {
+                ouder2.voegJouwStamboomToe(lijst, g + 1);
+            }
+        }
     }
 
     /**
@@ -370,7 +387,14 @@ public class Persoon implements java.io.Serializable {
      */
     public String stamboomAlsString() {
         StringBuilder builder = new StringBuilder();
-        //todo opgave 2
+        ArrayList<PersoonMetGeneratie> lijst = new ArrayList<>();
+        voegJouwStamboomToe(lijst, 0);
+        for (PersoonMetGeneratie p : lijst) {
+            for (int i = 0; i < p.getGeneratie(); i++) {
+                builder.append("_");
+            }
+            builder.append(p.getPersoonsgegevens() + "/n");
+        }
 
         return builder.toString();
     }

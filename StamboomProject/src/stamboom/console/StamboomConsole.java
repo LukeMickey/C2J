@@ -1,8 +1,12 @@
 package stamboom.console;
 
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import stamboom.controller.StamboomController;
 import stamboom.domain.*;
+import stamboom.storage.SerializationMediator;
 import stamboom.util.StringUtilities;
 
 public class StamboomConsole {
@@ -10,11 +14,13 @@ public class StamboomConsole {
     // **********datavelden**********************************************
     private final Scanner input;
     private final StamboomController controller;
+    private final SerializationMediator sm;
 
     // **********constructoren*******************************************
     public StamboomConsole(StamboomController controller) {
         input = new Scanner(System.in);
         this.controller = controller;
+        sm = new SerializationMediator();
     }
 
     // ***********methoden***********************************************
@@ -40,6 +46,15 @@ public class StamboomConsole {
                 case SHOW_GEZIN:
                     toonGezinsgegevens();
                     break;
+                case SAVE_ADMIN:
+                    saveAdmin();
+                    break;
+                case LOAD_ADMIN:
+                    loadAdmin();
+                    break;
+                case SHOW_STAMBOOM:
+                    showStamboom();
+                    break;
             }
             choice = kiesMenuItem();
         }
@@ -47,6 +62,32 @@ public class StamboomConsole {
 
     Administratie getAdmin() {
         return controller.getAdministratie();
+    }
+    
+    void showStamboom(){
+        selecteerPersoon().stamboomAlsString();
+    }
+    
+    void setAdmin(Administratie admin){
+        controller.setAdmin(admin);
+    }
+    
+    void saveAdmin() {
+        try {
+            sm.save(getAdmin());
+        } catch (IOException ex) {
+            System.out.println("error opgetreden met opslaan van Administratie");
+            Logger.getLogger(StamboomConsole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    void loadAdmin() {
+        try {
+            setAdmin(sm.load());
+        } catch (IOException ex) {
+            System.out.println("error opgetreden met load van Administratie");
+            Logger.getLogger(StamboomConsole.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     void invoerNieuwePersoon() {
