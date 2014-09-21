@@ -66,7 +66,7 @@ public class Gezin {
      * @return het nummer van dit gezin
      */
     public int getNr() {
-        return nr;
+        return (int)nr;
     }
 
     /**
@@ -153,13 +153,6 @@ public class Gezin {
             return true;
         }
         return false;
-        /*
-        if(this.huwelijksdatum == null) { 
-            this.huwelijksdatum = datum;        
-            return true;
-        }
-        else return false;
-        */
     }
 
     /**

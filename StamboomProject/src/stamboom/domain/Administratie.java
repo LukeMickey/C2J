@@ -102,14 +102,13 @@ public class Administratie {
         if (ouder1 == ouder2) {
             return null;
         }
-
+        
         Calendar nu = Calendar.getInstance();
         if (ouder1.isGetrouwdOp(nu) || (ouder2 != null
                 && ouder2.isGetrouwdOp(nu))
                 || ongehuwdGezinBestaat(ouder1, ouder2)) {
             return null;      
         }
-        
         Gezin gezin = new Gezin(nextGezinsNr, ouder1, ouder2);  
         nextGezinsNr++;
         gezinnen.add(gezin);
@@ -118,6 +117,7 @@ public class Administratie {
         if (ouder2 != null) {
             ouder2.wordtOuderIn(gezin);
         }
+        
         return gezin;
     }
 
@@ -191,8 +191,19 @@ public class Administratie {
         
         
         for(Gezin g : this.gezinnen) {
-            if((g.getOuder1() == ouder1 && g.getOuder2() == ouder2) || (g.getOuder2() == ouder1 && g.getOuder1() == ouder2)) {
-                return null;
+            if((g.getOuder1() == ouder1 && g.getOuder2() == ouder2) || 
+                    (g.getOuder2() == ouder1 && g.getOuder1() == ouder2)) {
+                if(g.isOngehuwd()) {
+                    if (g.setHuwelijk(huwdatum)) {
+                        ouder1.wordtOuderIn(g);
+                        if (ouder2 != null) {
+                            ouder2.wordtOuderIn(g);
+                        }
+                        return g;
+                    }
+                } else {
+                    return null;                    
+                }
             }
         }
         
@@ -200,6 +211,10 @@ public class Administratie {
         if (g.setHuwelijk(huwdatum)) {
             this.gezinnen.add(g);
             nextGezinsNr++;
+            ouder1.wordtOuderIn(g);
+            if (ouder2 != null) {
+                ouder2.wordtOuderIn(g);
+            }
             return g;
         }
         return null;

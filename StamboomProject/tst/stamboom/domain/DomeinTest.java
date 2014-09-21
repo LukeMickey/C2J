@@ -241,6 +241,7 @@ public class DomeinTest extends TestCase{
          * overtreden: 1) een van de ouders is op dit moment getrouwd 2) het koppel
          * uit een ongehuwd gezin kan niet tegelijkertijd als koppel bij een ander ongehuwd
          * gezin betrokken zijn*/
+        //System.out.println("Beschrijving piet:" + piet.beschrijving() + "Beschrijving toos: " + toos.beschrijving());
         assertNull("een van de ouders is op dit moment getrouwd", adm.addOngehuwdGezin(piet, toos));
         assertNull("een van de ouders is op dit moment getrouwd", adm.addOngehuwdGezin(toos, piet));
         assertNull("het koppel uit een ongehuwd gezin kan niet tegelijkertijd bij"
@@ -280,7 +281,8 @@ public class DomeinTest extends TestCase{
                 "", new GregorianCalendar(1980, Calendar.APRIL, 23), "Venray", pietEnTeuntje);
         Gezin annieEnJan = adm.addOngehuwdGezin(annie, jan);
         Gezin huwelijk = adm.addHuwelijk(jan, annie, nu);
-        
+        System.out.println("annieEnJan value: " + annieEnJan);
+        System.out.println("huwelijk value: " + huwelijk);
         assertEquals("ongehuwd gezin trouwt", huwelijk, annieEnJan);
         assertEquals("huwelijksdatum bekend", nu, huwelijk.getHuwelijksdatum());
         assertNull("scheidingsdatum onbekend", huwelijk.getScheidingsdatum());
@@ -302,6 +304,7 @@ public class DomeinTest extends TestCase{
          */
         assertNull("scheidingsdatum onbekend", treesEnJaap.getScheidingsdatum());
         /* het gezin krijgt een uniek nummer toegewezen */
+        System.out.println("trees en jaap nummer: " + treesEnJaap.getNr());
         assertEquals("nummering van gezin lijkt onjuist",
                 3, treesEnJaap.getNr());
         /* dit gezin wordt ook bij de afzonderlijke ouders geregistreerd;

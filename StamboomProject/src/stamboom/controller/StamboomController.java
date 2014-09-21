@@ -6,6 +6,11 @@ package stamboom.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
 import stamboom.domain.Administratie;
 import stamboom.storage.IStorageMediator;
 
@@ -42,10 +47,12 @@ public class StamboomController {
      */
 
     public void serialize(File bestand) throws IOException {
-        //todo opgave 2
-        
+        FileOutputStream out = new FileOutputStream(bestand);
+        ObjectOutputStream objectOut = new ObjectOutputStream(out);
+        objectOut.writeObject(admin);
+        out.close();
+        objectOut.close();
     }
-
     /**
      * administratie wordt vanuit geserialiseerd bestand gevuld
      *
@@ -53,7 +60,15 @@ public class StamboomController {
      * @throws IOException
      */
     public void deserialize(File bestand) throws IOException {
-        //todo opgave 2
+        try {
+            FileInputStream input = new FileInputStream(bestand);
+            ObjectInputStream stream = new ObjectInputStream(input);
+            admin = (Administratie)stream.readObject();
+            stream.close();
+            input.close();
+        }catch(Exception ex){
+            System.out.println("Object not found: " + ex.toString());
+        }
   
     }
     

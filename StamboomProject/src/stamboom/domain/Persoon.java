@@ -220,7 +220,6 @@ public class Persoon {
     void wordtOuderIn(Gezin g) {
         if (!alsOuderBetrokkenIn.contains(g)) {
             alsOuderBetrokkenIn.add(g);
-            System.out.println("RIGHT!?");
         }
     }
 
@@ -247,8 +246,11 @@ public class Persoon {
      * @return true als persoon op datum getrouwd is, anders false
      */
     public boolean isGetrouwdOp(Calendar datum) {
+                
         for(Gezin g : this.alsOuderBetrokkenIn) {
-            if(g.getHuwelijksdatum() != null && g.getHuwelijksdatum().before(datum)) { return true;} 
+            if(g.getHuwelijksdatum() != null && g.getHuwelijksdatum().before(datum)) {                 
+                return true;
+            } 
         }
         return false;
     }
