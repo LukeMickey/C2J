@@ -3,7 +3,7 @@ package stamboom.domain;
 import java.util.*;
 import stamboom.util.StringUtilities;
 
-public class Gezin {
+public class Gezin implements java.io.Serializable {
 
     // *********datavelden*************************************
     private final int nr;

@@ -49,6 +49,7 @@ public class StamboomTest extends TestCase {
         Persoon jaron = adm.addPersoon(Geslacht.MAN, new String[]{"Jaron"}, "Swinkels",
                 "", new GregorianCalendar(1962, Calendar.JULY, 22), "Velp", gijsEnMary);
 
+        
         assertEquals("afmeting boom onjuist", 8, jaron.afmetingStamboom());
         String stamboomstring = jaron.stamboomAlsString();
         String[] regels = stamboomstring.split(System.getProperty("line.separator"));

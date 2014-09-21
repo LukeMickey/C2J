@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MirataPC" name="stamboom.domain.DomeinTest" skipped="0" tests="11" time="0.099" timestamp="2014-09-21T17:42:43">
+<testsuite errors="0" failures="1" hostname="MirataPC" name="stamboom.domain.StamboomTest" skipped="0" tests="1" time="0.067" timestamp="2014-09-21T21:37:24">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javafx.binarycss" value="false" />
@@ -8,7 +8,7 @@
     <property name="manifest.custom.codebase" value="*" />
     <property name="javafx.signing.blob" value="false" />
     <property name="libs.junit.javadoc" value="C:\Program Files\NetBeans 8.0\java\docs\junit-3.8.2-api.zip" />
-    <property name="javac.includes" value="stamboom/domain/DomeinTest.java" />
+    <property name="javac.includes" value="stamboom/domain/StamboomTest.java" />
     <property name="ant.core.lib" value="C:\Program Files\NetBeans 8.0\extide\ant\lib\ant.jar" />
     <property name="javadoc.windowtitle" value="" />
     <property name="javafx.preloader.enabled" value="false" />
@@ -49,7 +49,7 @@
     <property name="user.name" value="Mickey" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner stamboom.domain.DomeinTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\test\results\TEST-stamboom.domain.DomeinTest.xml crashfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junitvmwatcher4364607560128331248.properties propsfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junit4262187157451560750.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner stamboom.domain.StamboomTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\test\results\TEST-stamboom.domain.StamboomTest.xml crashfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junitvmwatcher5299265889218975563.properties propsfile=E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\junit2011822626846146377.properties" />
     <property name="auxiliary.org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.wrapAnnotations" value="WRAP_NEVER" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
@@ -69,7 +69,7 @@
     <property name="build.compiler.emacs" value="true" />
     <property name="javafx.deploy.includeDT" value="true" />
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_11\jre\lib\endorsed" />
-    <property name="test.includes" value="stamboom/domain/DomeinTest.java" />
+    <property name="test.includes" value="stamboom/domain/StamboomTest.java" />
     <property name="netbeans.dynamic.classpath" value="C:\Program Files\NetBeans 8.0\platform\core\core.jar;C:\Program Files\NetBeans 8.0\platform\core\org-openide-filesystems.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\core_ja.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\core_pt_BR.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\core_ru.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\core_zh_CN.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\org-openide-filesystems_ja.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\org-openide-filesystems_pt_BR.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\org-openide-filesystems_ru.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\org-openide-filesystems_zh_CN.jar;C:\Program Files\NetBeans 8.0\nb\core\org-netbeans-upgrader.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb_ja.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb_pt_BR.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb_ru.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb_zh_CN.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\org-netbeans-upgrader_ja.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\org-netbeans-upgrader_pt_BR.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\org-netbeans-upgrader_ru.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\org-netbeans-upgrader_zh_CN.jar" />
     <property name="jnlp.enabled" value="false" />
     <property name="java.vm.specification.version" value="1.8" />
@@ -84,7 +84,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="\" />
-    <property name="javac.includesfile.binary" value="E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\null1503867669" />
+    <property name="javac.includesfile.binary" value="E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\null962354173" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar:C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/plugin.jar:build/classes" />
@@ -99,7 +99,7 @@
     <property name="libs.hibernate4-persistencemodelgen.javadoc" value="" />
     <property name="libs.jaxb.javadoc" value="C:\Program Files\NetBeans 8.0\ide\docs\jaxb-api-doc.zip" />
     <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
-    <property name="javac.includes.binary" value="E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\test\classes\stamboom\domain\DomeinTest.class" />
+    <property name="javac.includes.binary" value="E:\School\C2J\StamboomProjectV3\C2J\StamboomProject\build\test\classes\stamboom\domain\StamboomTest.class" />
     <property name="ant.home" value="C:\Program Files\NetBeans 8.0\extide\ant" />
     <property name="libs.junit_4.src" value="C:\Program Files\NetBeans 8.0\java\docs\junit-4.10-sources.jar" />
     <property name="javafx.run.height" value="600" />
@@ -357,75 +357,19 @@
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="javafx.deploy.installpermanently" value="false" />
   </properties>
-  <testcase classname="stamboom.domain.DomeinTest" name="testSetOuders" time="0.011" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddPersoon" time="0.004" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetNaam" time="0.001" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddOngehuwdGezin" time="0.001" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testHeeftGescheidenOuders" time="0.001" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersonenMetAchternaam" time="0.001" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersoonEnPersonen" time="0.002" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testBeschrijvingGezin" time="0.002" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testSetEnIsHuwelijk" time="0.001" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddHuwelijk" time="0.007" />
-  <testcase classname="stamboom.domain.DomeinTest" name="testScheiding" time="0.003" />
-  <system-out><![CDATA[Just addedP.F. Swinkels
+  <testcase classname="stamboom.domain.StamboomTest" name="testStamboom" time="0.016">
+    <failure message="aantal regels expected:&lt;8&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: aantal regels expected:&lt;8&gt; but was:&lt;1&gt;
+	at stamboom.domain.StamboomTest.testStamboom(StamboomTest.java:56)
+</failure>
+  </testcase>
+  <system-out><![CDATA[Just addedP. Swinkels
 Just addedT. de Vries
-Just addedM.A. Swinkels
-Just addedP.F. Swinkels
-Just addedT. de Vries
-Just addedJ.J. Peters
-Just addedT.J. VaN deR Swinkels
-Just addedT.J. VaN deR Swinkels
-Just addedP.F. Swinkels
-Just addedT. de Vries
-Just addedP.F. Swinkels
-Just addedT. de Vries
-Just addedA.G. Dael
-Just addedJ.J. Peters
-Just addedT.J. VaN deR Swinkels
-Just addedP. VaN deR Swinkels
-Just addedP.F. Swinkels
-Just addedT. de Vries
-Just addedP.F. Swinkels
-Just addedT. de Vries
-Just addedF.G. Swinkel
-Just addedF.G. van der Swinkels
-Just addedF.G. Swinkelse
-Just addedP.F. Swinkels
-Just addedT. de Vries
-a0
-a0
-Just addedP.F. Swinkels
-Just addedT. de Vries
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970
-Just addedM..  swinkels  
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970; kinderen: -Markus Anna
-Just addedL. Swinkels
--a-- 1 P.F. Swinkels met T. de Vries 23-5-1970; kinderen: -Markus Anna -Leentje
-Just addedP.F. Swinkels
-Just addedT. de Vries
-Just addedA.G. Dael
-Just addedJ.J. Peters
-Just addedP. VaN deR Pieterse
-Just addedP.F. Swinkels
-Just addedT. de Vries
-Just addedA.G. Dael
-Just addedJ.J. Peters
-annieEnJan value: 2 A.G. Dael met J.J. Peters
-huwelijk value: 2 A.G. Dael met J.J. Peters
-Just addedT.G. van Dael
-Just addedJ. Giesbers
-trees en jaap nummer: 3
-Just addedP.G. Dael
-Just addedR.J. Peters
-Just addedJ.A. Krop
-Just addedP. VaN deR Swinkels
-Just addedM. Dael
-Just addedJ.J. Hop
-Just addedA. Dael
-Just addedF.J. Kroes
-Just addedP.F. Swinkels
-Just addedT. de Vries
+Just addedG.J. Swinkels
+Just addedF.K.H. de Vuiter
+Just addedA.I.T. de Vuiter
+Just addedL.I.H. de Vuiter
+Just addedM. de Vuiter
+Just addedJ. Swinkels
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

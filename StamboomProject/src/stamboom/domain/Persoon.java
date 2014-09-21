@@ -3,10 +3,13 @@ package stamboom.domain;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import stamboom.util.StringUtilities;
 
-public class Persoon {
+public class Persoon implements java.io.Serializable {
 
     // ********datavelden**************************************
     private final int nr;
@@ -89,15 +92,6 @@ public class Persoon {
         for (String s : voornamen) {
             initialen += s.substring(0, 1).trim().toUpperCase() + ".";
         }
-        
-        /*
-        if(this.voornamen[0] != null) {
-            initialen += this.voornamen[0].substring(0, 1).toUpperCase() + ".";
-        }
-        if(this.voornamen.length > 1 && this.voornamen[1] != null) {
-            initialen += this.voornamen[1].substring(0, 1).toUpperCase() + ".";
-        }
-        */
         return initialen;
     }
 
@@ -289,6 +283,10 @@ public class Persoon {
         }
         return false;
     }
+    
+    public Gezin mapIndex(HashMap<Gezin, Integer> hMap, int index){
+        return (Gezin) hMap.keySet().toArray()[index];
+     }
 
     /**
      * ********* de rest wordt in opgave 2 verwerkt ****************
@@ -299,8 +297,36 @@ public class Persoon {
      * grootouders etc); de persoon zelf telt ook mee
      */
     public int afmetingStamboom() {
-        //todo opgave 2
-        return -1;
+        
+        int aantalMensen = 0;
+        
+        HashMap<Gezin, Integer> gezinnen = new HashMap<Gezin, Integer>();
+        gezinnen.put(this.ouderlijkGezin, 0);
+        
+        while(gezinnen.size() > 0) {
+            
+            int i = gezinnen.size() - 1;
+            Gezin g = mapIndex(gezinnen, i);
+            
+            if(gezinnen.get(mapIndex(gezinnen, i)) == 0) {
+                gezinnen.put(g, 1);
+                
+                if(g.getOuder1().getOuderlijkGezin() != null) {  
+                    gezinnen.put(g.getOuder1().getOuderlijkGezin(), 0);                         
+                } 
+                aantalMensen += 1;
+
+            } else if(gezinnen.get(mapIndex(gezinnen, i)) == 1) {
+                if(g.getOuder2() != null && g.getOuder2().getOuderlijkGezin() != null) {                    
+                    gezinnen.put(g.getOuder2().getOuderlijkGezin(), 0);     
+                } 
+                aantalMensen += 1;
+
+                gezinnen.remove(g);
+            }
+        }
+        
+        return aantalMensen;
     }
 
     /**
