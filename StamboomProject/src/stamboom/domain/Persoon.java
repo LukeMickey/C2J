@@ -341,13 +341,16 @@ public class Persoon implements java.io.Serializable {
      * @param g >=0, het nummer van de generatie waaraan deze persoon is
      * toegewezen;
      */
-    void voegJouwStamboomToe(ArrayList<PersoonMetGeneratie> lijst, int g) {
+    public void voegJouwStamboomToe(ArrayList<PersoonMetGeneratie> lijst, int g) {
         
         lijst.add(new PersoonMetGeneratie(this.standaardgegevens(), g));
-        Persoon ouder1 = this.getOuderlijkGezin().getOuder1();
-        Persoon ouder2 = this.getOuderlijkGezin().getOuder2();
+        Persoon ouder1 = null;
+        Persoon ouder2 = null;
+        if (this.getOuderlijkGezin() != null) {
+            ouder1 = this.getOuderlijkGezin().getOuder1();
+            ouder2 = this.getOuderlijkGezin().getOuder2();
+        }
         if (ouder1 != null) {
-            System.out.println(ouder1.toString() + lijst.size() + g);
             ouder1.voegJouwStamboomToe(lijst, g + 1);
         }
         if (ouder2 != null) {
@@ -384,9 +387,9 @@ public class Persoon implements java.io.Serializable {
         voegJouwStamboomToe(lijst, 0);
         for (PersoonMetGeneratie p : lijst) {
             for (int i = 0; i < p.getGeneratie(); i++) {
-                builder.append("__");
+                builder.append("  ");
             }
-            builder.append(p.getPersoonsgegevens() + "/n");
+            builder.append(p.getPersoonsgegevens() + "\r\n");
         }
         return builder.toString();
     }
