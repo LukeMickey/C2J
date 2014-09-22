@@ -342,23 +342,16 @@ public class Persoon implements java.io.Serializable {
      * toegewezen;
      */
     void voegJouwStamboomToe(ArrayList<PersoonMetGeneratie> lijst, int g) {
-        int gen = -1;
-        for (PersoonMetGeneratie p : lijst) {
-            if (p.getGeneratie() == g) {
-                gen = lijst.indexOf(p);
-            }
+        
+        lijst.add(new PersoonMetGeneratie(this.standaardgegevens(), g));
+        Persoon ouder1 = this.getOuderlijkGezin().getOuder1();
+        Persoon ouder2 = this.getOuderlijkGezin().getOuder2();
+        if (ouder1 != null) {
+            System.out.println(ouder1.toString() + lijst.size() + g);
+            ouder1.voegJouwStamboomToe(lijst, g + 1);
         }
-        if (gen != -1) {
-            String gegevens = this.getNaam() + " " + this.getGeslacht() + " " + this.getGebDat();
-            lijst.add(gen+1, new PersoonMetGeneratie(gegevens, g));
-            Persoon ouder1 = this.getOuderlijkGezin().getOuder1();
-            Persoon ouder2 = this.getOuderlijkGezin().getOuder2();
-            if (ouder1 != null) {
-                ouder1.voegJouwStamboomToe(lijst, g + 1);
-            }
-            if (ouder2 != null) {
-                ouder2.voegJouwStamboomToe(lijst, g + 1);
-            }
+        if (ouder2 != null) {
+            ouder2.voegJouwStamboomToe(lijst, g + 1);
         }
     }
 
@@ -391,11 +384,10 @@ public class Persoon implements java.io.Serializable {
         voegJouwStamboomToe(lijst, 0);
         for (PersoonMetGeneratie p : lijst) {
             for (int i = 0; i < p.getGeneratie(); i++) {
-                builder.append("_");
+                builder.append("__");
             }
             builder.append(p.getPersoonsgegevens() + "/n");
         }
-
         return builder.toString();
     }
 }

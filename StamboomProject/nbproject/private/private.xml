@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Luke/Documents/GitHub/C2J/C2J/StamboomProject/tst/stamboom/domain/DomeinTest.java</file>
+            <file>file:/C:/Users/Luke/Documents/GitHub/C2J/C2J/StamboomProject/src/stamboom/console/StamboomConsole.java</file>
+            <file>file:/C:/Users/Luke/Documents/GitHub/C2J/C2J/StamboomProject/src/stamboom/domain/Persoon.java</file>
             <file>file:/C:/Users/Luke/Documents/GitHub/C2J/C2J/StamboomProject/tst/stamboom/domain/StamboomTest.java</file>
+            <file>file:/C:/Users/Luke/Documents/GitHub/C2J/C2J/StamboomProject/src/stamboom/util/StringUtilities.java</file>
         </group>
     </open-files>
 </project-private>
