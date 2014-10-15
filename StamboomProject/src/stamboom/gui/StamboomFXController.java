@@ -5,6 +5,7 @@
 package stamboom.gui;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -14,9 +15,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import stamboom.controller.StamboomController;
+import stamboom.domain.Geslacht;
 import stamboom.domain.Gezin;
 import stamboom.domain.Persoon;
 import stamboom.util.StringUtilities;
+import static stamboom.util.StringUtilities.datum;
 
 /**
  *
@@ -159,7 +162,44 @@ public class StamboomFXController extends StamboomController implements Initiali
     }
 
     public void okPersoonInvoer(Event evt) {
-        // todo opgave 3
+        String voornaamS = this.tfNieuwVoornamen.getText();
+        ArrayList<String> voornaamA = new ArrayList<>();
+        String tussenV = this.tfNieuwTussenvoegsel.getText();
+        String achterN = this.tfNieuwAchternaam.getText();
+        Geslacht geslacht = (Geslacht)this.cbNieuwGeslacht.getSelectionModel().getSelectedItem();
+        Gezin ouderlijkGezin = (Gezin)this.cbNieuwOuderlijkGezin.getSelectionModel().getSelectedItem();
+        Calendar gebDatum = null;
+        try
+        {
+           gebDatum = datum(this.tfNieuwGeboortedatum.getText()); 
+        }
+        catch (IllegalArgumentException ex)
+        {
+            this.showDialog("Invalid Input", "Wrong date format, adhere to dd-mm-yyyy");
+            return;
+        }
+        
+        if(voornaamS.isEmpty() || 
+                tussenV.isEmpty() || 
+                achterN.isEmpty() || 
+                this.cbNieuwGeslacht.getSelectionModel().getSelectedItem() == null ||
+                this.cbNieuwOuderlijkGezin.getSelectionModel().getSelectedItem() == null) {
+            this.showDialog("Incomplete Input", "Please provide additional details");
+            return;
+        }
+        
+        while(voornaamS.contains(" "))
+        {
+            voornaamS = voornaamS.trim();
+            if(voornaamS.contains(" "))
+            {
+                voornaamA.add(voornaamS.substring(0, voornaamS.indexOf(" ")));
+                voornaamS = voornaamS.substring(voornaamS.indexOf(" "));
+            }
+        }
+        voornaamA.add(voornaamS);
+        
+        
 
     }
 
