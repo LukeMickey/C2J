@@ -11,8 +11,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import stamboom.domain.Administratie;
 
 public class SerializationMediator implements IStorageMediator {
@@ -28,32 +26,64 @@ public class SerializationMediator implements IStorageMediator {
 
     @Override
     public Administratie load() throws IOException {
-        if (!isCorrectlyConfigured()) {
+        if (!isCorrectlyConfigured()) 
+        {
             throw new RuntimeException("Serialization mediator isn't initialized correctly.");
         }
         
-        Administratie admin = null;        
-        ObjectInputStream input = new ObjectInputStream(new FileInputStream("Adminsave.tmp"));
-        
-        try {
-            admin = (Administratie)input.readObject();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SerializationMediator.class.getName()).log(Level.SEVERE, null, ex);
+        FileInputStream fsIn = null;
+        ObjectInputStream objIn = null;
+        Administratie admin = null;
+        try
+        {
+            fsIn = new FileInputStream(((File) props.get("file")).toString());
+            objIn = new ObjectInputStream(fsIn);
+            admin = (Administratie)objIn.readObject();
+            admin.setObservableLists();
         }
-        
-        return null;
+        catch(IOException | ClassNotFoundException ioEx)
+        {
+            throw new IOException("wrong filetype or general failure");
+        }
+        try
+        {
+            fsIn.close();
+            objIn.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex.toString());
+        }
+        return admin;
     }
 
     @Override
     public void save(Administratie admin) throws IOException {
-        if (!isCorrectlyConfigured()) {
+        if (!isCorrectlyConfigured()) 
+        {
             throw new RuntimeException("Serialization mediator isn't initialized correctly.");
         }
-        
-        FileOutputStream file = new FileOutputStream("Adminsave.tmp");
-        ObjectOutputStream adminSave = new ObjectOutputStream(file);
-        adminSave.writeObject(admin);  
-        adminSave.close();
+
+        FileOutputStream fsOut = null;
+        ObjectOutputStream objOut = null;
+        try
+        {
+            fsOut = new FileOutputStream(((File) props.get("file")).toString());
+            objOut = new ObjectOutputStream(fsOut);
+            objOut.writeObject(admin);
+        }       
+        catch(IOException ioEx){
+            ioEx.printStackTrace();
+        }
+        try
+        {
+            fsOut.close();
+            objOut.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex.toString());
+        }
     }
 
     @Override

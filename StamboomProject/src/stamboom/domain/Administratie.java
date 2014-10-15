@@ -5,13 +5,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 
-public class Administratie implements java.io.Serializable {
+public final class Administratie implements java.io.Serializable {
 
     //************************datavelden*************************************
     private int nextGezinsNr;
     private int nextPersNr;
-    private final ObservableList<Persoon> personen;
-    private final ObservableList<Gezin> gezinnen;
+    private List<Persoon> personen;
+    private List<Gezin> gezinnen;
+    private transient ObservableList<Persoon> personenObserve;
+    private transient ObservableList<Gezin> gezinnenObserve;
 
     //***********************constructoren***********************************
     /**
@@ -21,10 +23,17 @@ public class Administratie implements java.io.Serializable {
      */
     public Administratie() {
         //todo opgave 1
-        personen = FXCollections.observableArrayList();
-        gezinnen = FXCollections.observableArrayList();
+        personen = new ArrayList<>();
+        gezinnen = new ArrayList<>();
         this.nextGezinsNr = 1;
         this.nextPersNr = 1;
+        setObservableLists();
+    }
+    
+    public void setObservableLists()
+    {
+        personenObserve = FXCollections.observableList(personen);
+        gezinnenObserve = FXCollections.observableList(gezinnen);
     }
 
     //**********************methoden****************************************
@@ -276,7 +285,7 @@ public class Administratie implements java.io.Serializable {
      */
     public ObservableList<Persoon> getPersonen() {
         // todo opgave 1
-        return (ObservableList<Persoon>)FXCollections.unmodifiableObservableList(this.personen); 
+        return (ObservableList<Persoon>)FXCollections.unmodifiableObservableList(this.personenObserve); 
     }
 
     /**
@@ -319,7 +328,7 @@ public class Administratie implements java.io.Serializable {
      * @return de geregistreerde gezinnen
      */
     public ObservableList<Gezin> getGezinnen() {
-        return (ObservableList<Gezin>)FXCollections.unmodifiableObservableList(gezinnen);
+        return (ObservableList<Gezin>)FXCollections.unmodifiableObservableList(gezinnenObserve);
     }
 
     /**

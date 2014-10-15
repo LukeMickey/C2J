@@ -21,7 +21,8 @@ public class Persoon implements java.io.Serializable {
     private final Calendar gebDat;
     private final String gebPlaats;
     private Gezin ouderlijkGezin;
-    private final ObservableList<Gezin> alsOuderBetrokkenIn;
+    private final List<Gezin> alsOuderBetrokkenIn;
+    private transient ObservableList<Gezin> alsOuderBetrokkenInObserve;
     private final Geslacht geslacht;
 
     // ********constructoren***********************************
@@ -42,8 +43,9 @@ public class Persoon implements java.io.Serializable {
         this.achternaam = StringUtilities.withFirstCapital(anaam);
         this.tussenvoegsel = tvoegsel;
         this.gebDat = gebdat;
-        this.gebPlaats = StringUtilities.withFirstCapital(gebplaats);        
-        this.alsOuderBetrokkenIn = FXCollections.observableArrayList();
+        this.gebPlaats = StringUtilities.withFirstCapital(gebplaats);    
+        this.alsOuderBetrokkenIn = new ArrayList<>();
+        this.alsOuderBetrokkenInObserve = FXCollections.observableList(alsOuderBetrokkenIn);
         this.geslacht = g;
         
         this.ouderlijkGezin = ouderlijkGezin;
@@ -161,7 +163,7 @@ public class Persoon implements java.io.Serializable {
      * @return de gezinnen waar deze persoon bij betrokken is
      */
     public ObservableList<Gezin> getAlsOuderBetrokkenIn() {
-        return (ObservableList<Gezin>)FXCollections.unmodifiableObservableList(alsOuderBetrokkenIn);
+        return (ObservableList<Gezin>)FXCollections.unmodifiableObservableList(alsOuderBetrokkenInObserve);
     }
 
     /**

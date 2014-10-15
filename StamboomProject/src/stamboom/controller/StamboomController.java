@@ -52,12 +52,16 @@ public class StamboomController {
      * @throws IOException
      */
 
-    public void serialize(File bestand) throws IOException {
+    public void serialize(File bestand) throws IOException 
+    {
+        if (!(storageMediator instanceof SerializationMediator)) 
+        {
             Properties props = new Properties();
             props.put("file", bestand);
             storageMediator = new SerializationMediator();
             storageMediator.configure(props);
-            storageMediator.save(admin);
+        }
+        storageMediator.save(admin);    
     }
     /**
      * administratie wordt vanuit geserialiseerd bestand gevuld
@@ -67,10 +71,14 @@ public class StamboomController {
      */
     public void deserialize(File bestand) throws IOException 
     {
-        Properties props = new Properties();
-        props.put("file", bestand);
-        storageMediator = new SerializationMediator();
-        storageMediator.configure(props);
+        if (!(storageMediator instanceof SerializationMediator))
+        {
+            Properties props = new Properties();
+            props.put("file", bestand);
+            storageMediator = new SerializationMediator();
+            storageMediator.configure(props);
+            
+        }
         Administratie output = storageMediator.load();
         if(output != null)
         {

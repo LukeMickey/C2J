@@ -11,7 +11,8 @@ public class Gezin implements java.io.Serializable {
     private final int nr;
     private final Persoon ouder1;
     private final Persoon ouder2;
-    private final ObservableList<Persoon> kinderen;
+    private final List<Persoon> kinderen;
+    private transient ObservableList<Persoon> kinderenObserve;
     /**
      * kan onbekend zijn (dan is het een ongehuwd gezin):
      */
@@ -42,7 +43,8 @@ public class Gezin implements java.io.Serializable {
         this.nr = gezinsNr;
         this.ouder1 = ouder1;
         this.ouder2 = ouder2;
-        this.kinderen = FXCollections.observableArrayList();
+        this.kinderen = new ArrayList();
+        this.kinderenObserve = FXCollections.observableList(kinderen);
         this.huwelijksdatum = null;
         this.scheidingsdatum = null;
     }
@@ -52,7 +54,7 @@ public class Gezin implements java.io.Serializable {
      * @return alle kinderen uit dit gezin
      */
     public ObservableList<Persoon> getKinderen() {
-        return (ObservableList<Persoon>)FXCollections.unmodifiableObservableList(kinderen);
+        return (ObservableList<Persoon>)FXCollections.unmodifiableObservableList(kinderenObserve);
     }
 
     /**
