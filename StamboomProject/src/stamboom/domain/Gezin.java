@@ -1,6 +1,8 @@
 package stamboom.domain;
 
 import java.util.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import stamboom.util.StringUtilities;
 
 public class Gezin implements java.io.Serializable {
@@ -9,7 +11,7 @@ public class Gezin implements java.io.Serializable {
     private final int nr;
     private final Persoon ouder1;
     private final Persoon ouder2;
-    private final List<Persoon> kinderen;
+    private final ObservableList<Persoon> kinderen;
     /**
      * kan onbekend zijn (dan is het een ongehuwd gezin):
      */
@@ -40,7 +42,7 @@ public class Gezin implements java.io.Serializable {
         this.nr = gezinsNr;
         this.ouder1 = ouder1;
         this.ouder2 = ouder2;
-        this.kinderen = new ArrayList<>();
+        this.kinderen = FXCollections.observableArrayList();
         this.huwelijksdatum = null;
         this.scheidingsdatum = null;
     }
@@ -49,8 +51,8 @@ public class Gezin implements java.io.Serializable {
     /**
      * @return alle kinderen uit dit gezin
      */
-    public List<Persoon> getKinderen() {
-        return (List<Persoon>) Collections.unmodifiableList(kinderen);
+    public ObservableList<Persoon> getKinderen() {
+        return (ObservableList<Persoon>)FXCollections.unmodifiableObservableList(kinderen);
     }
 
     /**

@@ -1,6 +1,8 @@
 package stamboom.domain;
 
 import java.util.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class Administratie implements java.io.Serializable {
@@ -8,8 +10,8 @@ public class Administratie implements java.io.Serializable {
     //************************datavelden*************************************
     private int nextGezinsNr;
     private int nextPersNr;
-    private final List<Persoon> personen;
-    private final List<Gezin> gezinnen;
+    private final ObservableList<Persoon> personen;
+    private final ObservableList<Gezin> gezinnen;
 
     //***********************constructoren***********************************
     /**
@@ -19,8 +21,8 @@ public class Administratie implements java.io.Serializable {
      */
     public Administratie() {
         //todo opgave 1
-        personen = new ArrayList<>();
-        gezinnen = new ArrayList<>();
+        personen = FXCollections.observableArrayList();
+        gezinnen = FXCollections.observableArrayList();
         this.nextGezinsNr = 1;
         this.nextPersNr = 1;
     }
@@ -272,9 +274,9 @@ public class Administratie implements java.io.Serializable {
      *
      * @return de geregistreerde personen
      */
-    public List<Persoon> getPersonen() {
+    public ObservableList<Persoon> getPersonen() {
         // todo opgave 1
-        return Collections.unmodifiableList(this.personen); 
+        return (ObservableList<Persoon>)FXCollections.unmodifiableObservableList(this.personen); 
     }
 
     /**
@@ -316,8 +318,8 @@ public class Administratie implements java.io.Serializable {
      *
      * @return de geregistreerde gezinnen
      */
-    public List<Gezin> getGezinnen() {
-        return null;
+    public ObservableList<Gezin> getGezinnen() {
+        return (ObservableList<Gezin>)FXCollections.unmodifiableObservableList(gezinnen);
     }
 
     /**

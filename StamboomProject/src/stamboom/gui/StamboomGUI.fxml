@@ -162,7 +162,7 @@
                 </AnchorPane>
               </content>
             </Tab>
-            <Tab fx:id="tabNieuwPersoon" text="Nieuwe Persoon">
+            <Tab fx:id="tabNieuwPersoon" text="Nieuw Persoon">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
@@ -237,7 +237,7 @@
             </Tab>
             <Tab fx:id="tabGezinInvoer" onSelectionChanged="#selectTab" text="Nieuw Gezin">
               <content>
-                <SplitPane dividerPositions="0.8292682926829268" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                <SplitPane dividerPositions="0.7682926829268293" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                   <items>
                     <GridPane alignment="CENTER" hgap="4.0" prefHeight="269.0" prefWidth="772.0">
                       <children>

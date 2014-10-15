@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import stamboom.util.StringUtilities;
 
 public class Persoon implements java.io.Serializable {
@@ -19,7 +21,7 @@ public class Persoon implements java.io.Serializable {
     private final Calendar gebDat;
     private final String gebPlaats;
     private Gezin ouderlijkGezin;
-    private final List<Gezin> alsOuderBetrokkenIn;
+    private final ObservableList<Gezin> alsOuderBetrokkenIn;
     private final Geslacht geslacht;
 
     // ********constructoren***********************************
@@ -41,7 +43,7 @@ public class Persoon implements java.io.Serializable {
         this.tussenvoegsel = tvoegsel;
         this.gebDat = gebdat;
         this.gebPlaats = StringUtilities.withFirstCapital(gebplaats);        
-        this.alsOuderBetrokkenIn = new ArrayList<>();
+        this.alsOuderBetrokkenIn = FXCollections.observableArrayList();
         this.geslacht = g;
         
         this.ouderlijkGezin = ouderlijkGezin;
@@ -158,8 +160,8 @@ public class Persoon implements java.io.Serializable {
     /**
      * @return de gezinnen waar deze persoon bij betrokken is
      */
-    public List<Gezin> getAlsOuderBetrokkenIn() {
-        return (List<Gezin>) Collections.unmodifiableList(alsOuderBetrokkenIn);
+    public ObservableList<Gezin> getAlsOuderBetrokkenIn() {
+        return (ObservableList<Gezin>)FXCollections.unmodifiableObservableList(alsOuderBetrokkenIn);
     }
 
     /**
