@@ -48,6 +48,18 @@ public class StamboomFXController extends StamboomController implements Initiali
     @FXML ComboBox cbOuderlijkGezin;
     @FXML ListView lvAlsOuderBetrokkenBij;
     @FXML Button btStamboom;
+    @FXML TextArea taStamboom;
+    
+    //GEZIN
+    @FXML ComboBox cbKiesGezin;
+    @FXML TextField tfGezinNr;
+    @FXML TextField tfOuder1;
+    @FXML TextField tfOuder2;
+    @FXML TextField tfHuwelijk;
+    @FXML TextField tfScheiding;
+    @FXML TextArea taKinderen;
+    @FXML Button btnSetHuwelijk, btnSetScheiding;
+    @FXML TextField tfNewDate;
 
     //INVOER GEZIN
     @FXML ComboBox cbOuder1Invoer;
@@ -56,6 +68,15 @@ public class StamboomFXController extends StamboomController implements Initiali
     @FXML TextField tfScheidingInvoer;
     @FXML Button btOKGezinInvoer;
     @FXML Button btCancelGezinInvoer;
+    
+    //INVOER PERSOON
+    @FXML TextField tfNieuwVoornamen;
+    @FXML TextField tfNieuwTussenvoegsel;
+    @FXML TextField tfNieuwAchternaam;
+    @FXML ComboBox cbNieuwGeslacht;
+    @FXML TextField tfNieuwGeboortedatum;
+    @FXML TextField tfNieuwGeboorteplaats;
+    @FXML ComboBox cbNieuwOuderlijkGezin;
 
     //opgave 4
     private boolean withDatabase;

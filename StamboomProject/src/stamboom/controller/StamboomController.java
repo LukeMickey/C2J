@@ -11,8 +11,10 @@ import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
+import java.util.Properties;
 import stamboom.domain.Administratie;
 import stamboom.storage.IStorageMediator;
+import stamboom.storage.SerializationMediator;
 
 public class StamboomController {
 
@@ -51,11 +53,11 @@ public class StamboomController {
      */
 
     public void serialize(File bestand) throws IOException {
-        FileOutputStream out = new FileOutputStream(bestand);
-        ObjectOutputStream objectOut = new ObjectOutputStream(out);
-        objectOut.writeObject(admin);
-        out.close();
-        objectOut.close();
+            Properties props = new Properties();
+            props.put("file", bestand);
+            storageMediator = new SerializationMediator();
+            storageMediator.configure(props);
+            storageMediator.save(admin);
     }
     /**
      * administratie wordt vanuit geserialiseerd bestand gevuld
@@ -63,17 +65,21 @@ public class StamboomController {
      * @param bestand
      * @throws IOException
      */
-    public void deserialize(File bestand) throws IOException {
-        try {
-            FileInputStream input = new FileInputStream(bestand);
-            ObjectInputStream stream = new ObjectInputStream(input);
-            admin = (Administratie)stream.readObject();
-            stream.close();
-            input.close();
-        }catch(Exception ex){
-            System.out.println("Object not found: " + ex.toString());
+    public void deserialize(File bestand) throws IOException 
+    {
+        Properties props = new Properties();
+        props.put("file", bestand);
+        storageMediator = new SerializationMediator();
+        storageMediator.configure(props);
+        Administratie output = storageMediator.load();
+        if(output != null)
+        {
+            admin = storageMediator.load();
         }
-  
+        else
+        {
+            throw new IOException("failed to load correctly");
+        }
     }
     
     // opgave 4
