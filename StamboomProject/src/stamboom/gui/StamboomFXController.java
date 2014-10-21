@@ -86,13 +86,18 @@ public class StamboomFXController extends StamboomController implements Initiali
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        initComboboxes();
+        this.initComboboxes();
         withDatabase = false;
     }
 
-    private void initComboboxes() {
-        //todo opgave 3 
-
+    private void initComboboxes() {        
+        this.cbNieuwGeslacht.setItems(FXCollections.observableArrayList(Geslacht.values()));
+        this.cbNieuwOuderlijkGezin.setItems(this.getAdministratie().getGezinnen());
+        this.cbOuder1Invoer.setItems(this.getAdministratie().getPersonen());
+        this.cbOuder2Invoer.setItems(this.getAdministratie().getPersonen());
+        this.cbPersonen.setItems(this.getAdministratie().getPersonen()); 
+        this.cbKiesGezin.setItems(this.getAdministratie().getGezinnen());
+        this.cbOuderlijkGezin.setItems(this.getAdministratie().getGezinnen());
     }
 
     public void selectPersoon(Event evt) {
@@ -166,6 +171,7 @@ public class StamboomFXController extends StamboomController implements Initiali
         ArrayList<String> voornaamA = new ArrayList<>();
         String tussenV = this.tfNieuwTussenvoegsel.getText();
         String achterN = this.tfNieuwAchternaam.getText();
+        String gebPlaats = this.tfNieuwGeboorteplaats.getText();
         Geslacht geslacht = (Geslacht)this.cbNieuwGeslacht.getSelectionModel().getSelectedItem();
         Gezin ouderlijkGezin = (Gezin)this.cbNieuwOuderlijkGezin.getSelectionModel().getSelectedItem();
         Calendar gebDatum = null;
@@ -180,10 +186,10 @@ public class StamboomFXController extends StamboomController implements Initiali
         }
         
         if(voornaamS.isEmpty() || 
-                tussenV.isEmpty() || 
                 achterN.isEmpty() || 
-                this.cbNieuwGeslacht.getSelectionModel().getSelectedItem() == null ||
-                this.cbNieuwOuderlijkGezin.getSelectionModel().getSelectedItem() == null) {
+                gebDatum == null ||
+                gebPlaats.isEmpty() ||
+                this.cbNieuwGeslacht.getSelectionModel().getSelectedItem() == null) {
             this.showDialog("Incomplete Input", "Please provide additional details");
             return;
         }
@@ -199,8 +205,20 @@ public class StamboomFXController extends StamboomController implements Initiali
         }
         voornaamA.add(voornaamS);
         
+        Persoon persoon = this.getAdministratie().addPersoon(geslacht, 
+                voornaamA.toArray(new String[voornaamA.size()]), achterN, 
+                tussenV, gebDatum, gebPlaats, ouderlijkGezin);
         
-
+        if(persoon != null)
+        {
+            this.showDialog("Person added", persoon.toString() + " has been added to the system");
+        }
+        else
+        {
+            this.showDialog("Person not added", "Specified person has not been added to the system");
+        }
+        this.clearTabPersoonInvoer();
+        this.initComboboxes();
     }
 
     public void okGezinInvoer(Event evt) {
@@ -238,7 +256,7 @@ public class StamboomFXController extends StamboomController implements Initiali
             }
         }
 
-        clearTabGezinInvoer();
+        this.clearTabGezinInvoer();
     }
 
     public void cancelGezinInvoer(Event evt) {
@@ -247,8 +265,28 @@ public class StamboomFXController extends StamboomController implements Initiali
 
     
     public void showStamboom(Event evt) {
-        // todo opgave 3
+        this.taStamboom.clear();
         
+        int persoonNr = -1;
+        
+        try
+        {
+           persoonNr = Integer.parseInt(this.tfPersoonNr.getText());
+        }
+        catch (NumberFormatException ex)
+        {
+            this.showDialog("Input Error", "Input does not correlate with a valid person: " + ex.getMessage());
+            return;
+        }
+        
+        Persoon persoon = getAdministratie().getPersoon(persoonNr);
+        if(persoon == null)
+        {
+            this.showDialog("Invalid Person", "Please give a valid index for Person");
+            return;
+        }
+        
+        this.taStamboom.setText(persoon.stamboomAlsString());        
     }
 
     public void createEmptyStamboom(Event evt) {
@@ -295,41 +333,53 @@ public class StamboomFXController extends StamboomController implements Initiali
     }
 
     private void clearTabs() {
-        clearTabPersoon();
-        clearTabPersoonInvoer();
-        clearTabGezin();
-        clearTabGezinInvoer();
+        this.clearTabPersoon();
+        this.clearTabPersoonInvoer();
+        this.clearTabGezin();
+        this.clearTabGezinInvoer();
     }
 
     
     private void clearTabPersoonInvoer() {
-        //todo opgave 3
-        
+        this.cbNieuwOuderlijkGezin.getSelectionModel().clearSelection();  
+        this.tfNieuwGeboortedatum.clear();
+        this.tfNieuwGeboorteplaats.clear();
+        this.cbNieuwGeslacht.getSelectionModel().clearSelection();
+        this.tfNieuwAchternaam.clear();
+        this.tfNieuwVoornamen.clear();
+        this.tfNieuwTussenvoegsel.clear();        
     }
 
     
     private void clearTabGezinInvoer() {
-        //todo opgave 3
-    
+        this.cbOuder1Invoer.getSelectionModel().clearSelection();
+        this.cbOuder2Invoer.getSelectionModel().clearSelection();
+        this.tfHuwelijkInvoer.clear();
+        this.tfScheidingInvoer.clear();     
     }
 
     private void clearTabPersoon() {
-        cbPersonen.getSelectionModel().clearSelection();
-        tfPersoonNr.clear();
-        tfVoornamen.clear();
-        tfTussenvoegsel.clear();
-        tfAchternaam.clear();
-        tfGeslacht.clear();
-        tfGebDatum.clear();
-        tfGebPlaats.clear();
-        cbOuderlijkGezin.getSelectionModel().clearSelection();
-        lvAlsOuderBetrokkenBij.setItems(FXCollections.emptyObservableList());
+        this.cbPersonen.getSelectionModel().clearSelection();
+        this.tfPersoonNr.clear();
+        this.tfVoornamen.clear();
+        this.tfTussenvoegsel.clear();
+        this.tfAchternaam.clear();
+        this.tfGeslacht.clear();
+        this.tfGebDatum.clear();
+        this.tfGebPlaats.clear();
+        this.cbOuderlijkGezin.getSelectionModel().clearSelection();
+        this.lvAlsOuderBetrokkenBij.setItems(FXCollections.emptyObservableList());
     }
 
     
     private void clearTabGezin() {
-        // todo opgave 3
-       
+        this.tfNewDate.clear();this.tfScheiding.clear();
+        this.tfOuder1.clear();
+        this.tfOuder2.clear();
+        this.taKinderen.clear(); 
+        this.tfHuwelijk.clear();
+        this.tfGezinNr.clear();
+        this.cbKiesGezin.getSelectionModel().clearSelection();
     }
 
     private void showDialog(String type, String message) {
