@@ -89,7 +89,8 @@ public final class Administratie implements java.io.Serializable {
             if(p.getNaam().equals(newPersoon.getNaam()) && p.getGebPlaats().equals((newPersoon.getGebPlaats()))) return null;                       
         }
         
-        this.personen.add(newPersoon);
+        //this.personen.add(newPersoon);
+        this.personenObserve.add(newPersoon);
         
         nextPersNr++; 
         
@@ -201,7 +202,6 @@ public final class Administratie implements java.io.Serializable {
         
         if(ouder1.getNr() == ouder2.getNr()) return null;
         
-        
         for(Gezin g : this.gezinnen) {
             if((g.getOuder1() == ouder1 && g.getOuder2() == ouder2) || 
                     (g.getOuder2() == ouder1 && g.getOuder1() == ouder2)) {
@@ -221,7 +221,7 @@ public final class Administratie implements java.io.Serializable {
         
         Gezin g = new Gezin(nextGezinsNr, ouder1, ouder2);
         if (g.setHuwelijk(huwdatum)) {
-            this.gezinnen.add(g);
+            this.gezinnenObserve.add(g);
             nextGezinsNr++;
             ouder1.wordtOuderIn(g);
             if (ouder2 != null) {

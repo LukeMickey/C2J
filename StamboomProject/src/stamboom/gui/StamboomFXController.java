@@ -20,6 +20,7 @@ import stamboom.domain.Gezin;
 import stamboom.domain.Persoon;
 import stamboom.util.StringUtilities;
 import static stamboom.util.StringUtilities.datum;
+import static stamboom.util.StringUtilities.datumString;
 
 /**
  *
@@ -123,7 +124,7 @@ public class StamboomFXController extends StamboomController implements Initiali
             }
 
             //todo opgave 3
-            //lvAlsOuderBetrokkenBij.setItems(persoon.getAlsOuderBetrokkenIn());
+            lvAlsOuderBetrokkenBij.setItems(persoon.getAlsOuderBetrokkenIn());
         }
     }
 
@@ -142,22 +143,109 @@ public class StamboomFXController extends StamboomController implements Initiali
     }
 
     public void selectGezin(Event evt) {
-        // todo opgave 3
-
+        Gezin gezin = (Gezin)this.cbKiesGezin.getSelectionModel().getSelectedItem();
+        if(gezin != null)
+        {
+            this.showGezin(gezin);
+        }
     }
 
     private void showGezin(Gezin gezin) {
-        // todo opgave 3
-
+        this.clearTabGezin();
+        if(gezin == null)
+        {          
+            return;
+        }
+        this.tfGezinNr.setText(String.valueOf(gezin.getNr()));
+        this.tfOuder1.setText(gezin.getOuder1().getNaam());
+        if(gezin.getOuder2() != null)
+        {
+            this.tfOuder2.setText(gezin.getOuder2().getNaam());
+        }
+        
+        if(gezin.getHuwelijksdatum() != null)
+        {
+            this.tfHuwelijk.setText(datumString(gezin.getHuwelijksdatum()));
+            
+            if(gezin.getScheidingsdatum() != null)
+            {
+                this.tfScheiding.setText(datumString(gezin.getScheidingsdatum()));
+            }
+        }
     }
 
     public void setHuwdatum(Event evt) {
-        // todo opgave 3
-
+        Calendar datum;
+        Gezin gezin;
+        try
+        {
+             gezin = this.getAdministratie().getGezin(Integer.parseInt(this.tfGezinNr.getText()));
+             datum = datum(this.tfNewDate.getText());
+        }
+        catch (NumberFormatException exc)
+        {
+            this.showDialog("Invalid Input", "Please give a valid family index");
+            return;
+        }
+        catch (IllegalArgumentException exc)
+        {
+            this.showDialog("Invalid Input", "Given date could not be converted");
+            return;
+        }
+        if(gezin != null || datum != null)
+        {
+            if(!this.getAdministratie().setHuwelijk(gezin, datum))
+            {
+                this.showDialog("Error", "The system was not able to process this marriage");
+            }
+            else
+            {
+                this.showDialog("Family Married", gezin.toString() + " has been married");
+                this.showGezin(gezin);
+            }
+        }   
+        else
+        {
+            this.showDialog("Invalid Input", "Family not found or date is invalid");
+        }
+        this.tfNewDate.clear();
     }
 
     public void setScheidingsdatum(Event evt) {
-        // todo opgave 3
+        Calendar datum;
+        Gezin gezin;
+        try
+        {
+             gezin = this.getAdministratie().getGezin(Integer.parseInt(this.tfGezinNr.getText()));
+             datum = datum(this.tfNewDate.getText());
+        }
+        catch (NumberFormatException exc)
+        {
+            this.showDialog("Invalid Input", "Please give a valid family index");
+            return;
+        }
+        catch (IllegalArgumentException exc)
+        {
+            this.showDialog("Invalid Input", "Given date could not be converted");
+            return;
+        }
+        if(gezin != null || datum != null)
+        {
+            if(!this.getAdministratie().setScheiding(gezin, datum))
+            {
+                this.showDialog("Error", "The system was not able to divorce this family");
+            }
+            else
+            {
+                this.showDialog("Family Divorced", gezin.toString() + " has been divorced");
+                this.showGezin(gezin);
+            }
+        }   
+        else
+        {
+            this.showDialog("Invalid Input", "Family not found or date is invalid");
+        }
+        this.tfNewDate.clear();
 
     }
 
@@ -218,7 +306,6 @@ public class StamboomFXController extends StamboomController implements Initiali
             this.showDialog("Person not added", "Specified person has not been added to the system");
         }
         this.clearTabPersoonInvoer();
-        this.initComboboxes();
     }
 
     public void okGezinInvoer(Event evt) {
