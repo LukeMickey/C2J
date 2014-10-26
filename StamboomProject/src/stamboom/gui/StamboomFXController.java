@@ -250,8 +250,7 @@ public class StamboomFXController extends StamboomController implements Initiali
     }
 
     public void cancelPersoonInvoer(Event evt) {
-        // todo opgave 3
-
+        this.clearTabPersoonInvoer();
     }
 
     public void okPersoonInvoer(Event evt) {
