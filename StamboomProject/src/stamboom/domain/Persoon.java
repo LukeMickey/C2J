@@ -245,10 +245,12 @@ public class Persoon implements java.io.Serializable {
      */
     public boolean isGetrouwdOp(Calendar datum) {
                 
-        for(Gezin g : this.alsOuderBetrokkenIn) {
-            if(g.getHuwelijksdatum() != null && g.getHuwelijksdatum().before(datum)) {                 
+        for (Gezin gezin : alsOuderBetrokkenIn) 
+        {
+            if (gezin.heeftGetrouwdeOudersOp(datum)) 
+            {
                 return true;
-            } 
+            }
         }
         return false;
     }
